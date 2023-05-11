@@ -7,16 +7,23 @@ public abstract class UsuarioDTO {
 	private String fecha_nacimiento;
 	private String telefono;
 	private String direccion;
+	private TarjetaDTO tarjeta;
 	
-	public UsuarioDTO(String dni, String nombre, String apellidos, String fecha_nacimiento, String telefono,String direccion) {
+	public UsuarioDTO(String dni, String nombre, String apellidos, String fecha_nacimiento, String telefono,String direccion, TarjetaDTO tarjeta) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.telefono = telefono;
 		this.direccion = direccion;
+		this.tarjeta = tarjeta;
 	}
 
+		
+	public UsuarioDTO() {
+		
+	}
+	
 	public String getDni() {
 		return dni;
 	}
@@ -64,6 +71,25 @@ public abstract class UsuarioDTO {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
+	public TarjetaDTO getTarjeta() {
+		return tarjeta;
+	}
+
+	public void setTarjeta(TarjetaDTO tarjeta) {
+		this.tarjeta = tarjeta;
+	}
+
+
+	@Override
+	public String toString() {
+		return "UsuarioDTO [dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fecha_nacimiento="
+				+ fecha_nacimiento + ", telefono=" + telefono + ", direccion=" + direccion + ", tarjeta=" + tarjeta
+				+ "]";
+	}
+
+	
+	
 	
 	
 	

@@ -1,0 +1,69 @@
+package principal.modelo.DTO;
+
+import java.util.ArrayList;
+
+public class TarjetaDTO {
+	private String num_tarjeta;
+	private String pin;
+	private String cvv;
+	private String fecha_caducidad;
+	private ArrayList<CuentaDTO> cuenta;
+	
+	public TarjetaDTO(String num_tarjeta, String pin, String cvv, String fecha_caducidad, ArrayList<CuentaDTO> cuenta) {
+		this.num_tarjeta = num_tarjeta;
+		this.pin = pin;
+		this.cvv = cvv;
+		this.fecha_caducidad = fecha_caducidad;
+		this.cuenta = cuenta;
+	}
+	
+	public TarjetaDTO() {
+		
+	}
+
+	public String getNum_tarjeta() {
+		return num_tarjeta;
+	}
+
+	public void setNum_tarjeta(String num_tarjeta) {
+		this.num_tarjeta = num_tarjeta;
+	}
+
+	public String getPin() {
+		return pin;
+	}
+
+	public void setPin(String pin) {
+		this.pin = pin;
+	}
+
+	public String getCvv() {
+		return cvv;
+	}
+
+	public void setCvv(String cvv) {
+		this.cvv = cvv;
+	}
+
+	public String getFecha_caducidad() {
+		return fecha_caducidad;
+	}
+
+	public void setFecha_caducidad(String fecha_caducidad) {
+		this.fecha_caducidad = fecha_caducidad;
+	}
+
+	public ArrayList<CuentaDTO> getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(ArrayList<CuentaDTO> cuenta) {
+		this.cuenta = cuenta;
+	}
+
+
+	
+	
+	
+	
+}

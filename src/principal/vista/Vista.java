@@ -9,7 +9,7 @@ import principal.controlador.GestorLogin;
 
 public class Vista extends JFrame{
 	private MarcoLogin Marcologin;
-	
+	private MarcoUsuarioCorriente usrCorriente;
 	public Vista() {
 		super("Cajero Testing");
 		Marcologin = new MarcoLogin();
@@ -18,10 +18,10 @@ public class Vista extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.add(Marcologin);
-		this.pack();
 		this.setVisible(true);
-		this.setSize(400,300);
+		this.pack();
 		this.setResizable(false);
+		this.setSize(400,300);
 		Marcologin.getLogin().addActionListener(new GestorLogin(Marcologin, this));
 		
 	}

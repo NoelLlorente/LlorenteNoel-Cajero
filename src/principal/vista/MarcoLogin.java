@@ -35,14 +35,20 @@ public class MarcoLogin extends JPanel{
 		dnitxf = new JTextField();
 		pintxf = new JPasswordField();
 		login = new JButton("Login");
+		
 		j.add(dni);j.add(dnitxf);j.add(pin);j.add(pintxf);
+		
 		j.setLayout(new GridLayout(2,2));
+		
 		this.add(j2);
 		this.add(Box.createRigidArea(new Dimension(0, 30)));
 		this.add(j);
+		
 		j1.add(login);
 		this.add(Box.createRigidArea(new Dimension(0, 20)));
+		
 		this.add(j1);
+		
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		
 	}
