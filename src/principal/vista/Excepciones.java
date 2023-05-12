@@ -10,4 +10,12 @@ public interface Excepciones {
 		}
 		return false;
 	}
+	
+	public default boolean longitudNewPin(String pin) {
+		if(pin.length()<3 || pin.length()>6) {
+			JOptionPane.showMessageDialog(null, "El pin no puede ser inferior a 3 caracteres o mayor a 6 caracteres");
+			return true;
+		}
+		return false;
+	}
 }

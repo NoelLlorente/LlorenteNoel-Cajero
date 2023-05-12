@@ -19,7 +19,7 @@ public class MarcoUsuarioCorriente extends JPanel{
 	private JTextField txt_numTarjeta;
 	private JTextField txt_fechaCad;
 	private JTextField txt_cvv;
-	
+	private MarcoCambiarPin cmb_pin;
 	private JButton operacion;
 	private JButton cambiar_pin;
 	
@@ -33,6 +33,7 @@ public class MarcoUsuarioCorriente extends JPanel{
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();
 		
+	
 		jl_numTarjeta = new JLabel("Número Tarjeta:");
 		jl_fechaCad = new JLabel("Fecha caducidad:");
 		jl_cvv = new JLabel("CVV:");
@@ -69,13 +70,24 @@ public class MarcoUsuarioCorriente extends JPanel{
 	}
 
 
-	public JTextField getTxt_numTarjeta() {
-		return txt_numTarjeta;
+
+
+	public MarcoCambiarPin getCmb_pin() {
+		return cmb_pin;
 	}
 
 
-	public void setTxt_numTarjeta(JTextField txt_numTarjeta) {
-		this.txt_numTarjeta = txt_numTarjeta;
+
+
+	public void setCmb_pin(MarcoCambiarPin cmb_pin) {
+		this.cmb_pin = cmb_pin;
+	}
+
+
+
+
+	public JTextField getTxt_numTarjeta() {
+		return txt_numTarjeta;
 	}
 
 
@@ -84,18 +96,8 @@ public class MarcoUsuarioCorriente extends JPanel{
 	}
 
 
-	public void setTxt_fechaCad(JTextField txt_fechaCad) {
-		this.txt_fechaCad = txt_fechaCad;
-	}
-
-
 	public JTextField getTxt_cvv() {
 		return txt_cvv;
-	}
-
-
-	public void setTxt_cvv(JTextField txt_cvv) {
-		this.txt_cvv = txt_cvv;
 	}
 
 
@@ -104,19 +106,39 @@ public class MarcoUsuarioCorriente extends JPanel{
 	}
 
 
-	public void setOperacion(JButton operacion) {
-		this.operacion = operacion;
+	public JButton getCambiar_pin() {
+		return cambiar_pin;
 	}
 
 
-	public JButton getCambiar_pin() {
-		return cambiar_pin;
+
+
+	public void setTxt_numTarjeta(JTextField txt_numTarjeta) {
+		this.txt_numTarjeta = txt_numTarjeta;
+	}
+
+
+	public void setTxt_fechaCad(JTextField txt_fechaCad) {
+		this.txt_fechaCad = txt_fechaCad;
+	}
+
+
+	public void setTxt_cvv(JTextField txt_cvv) {
+		this.txt_cvv = txt_cvv;
+	}
+
+
+	public void setOperacion(JButton operacion) {
+		this.operacion = operacion;
 	}
 
 
 	public void setCambiar_pin(JButton cambiar_pin) {
 		this.cambiar_pin = cambiar_pin;
 	}
+
 	
 	
+
+
 }

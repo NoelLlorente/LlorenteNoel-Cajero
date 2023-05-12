@@ -5,31 +5,61 @@ import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 
+import principal.controlador.GestorBotoneraOpUsr;
+import principal.controlador.GestorCmbPin;
 import principal.controlador.GestorLogin;
+import principal.controlador.GestorOpUsrCorriente;
+import principal.controlador.GestorSalirOpCorriente;
+
 
 public class Vista extends JFrame{
 	private MarcoLogin Marcologin;
 	private MarcoUsuarioCorriente usrCorriente;
+	private MarcoOpUsrCorriente opUsrCorriente;
+	private MarcoSelCuenta selCuenta;
 	public Vista() {
 		super("Cajero Testing");
 		Marcologin = new MarcoLogin();
+		usrCorriente = new MarcoUsuarioCorriente();
+		opUsrCorriente = new MarcoOpUsrCorriente();
+		selCuenta = new MarcoSelCuenta();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.setLocationRelativeTo(null);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.add(Marcologin);
+		
 		this.setVisible(true);
 		this.pack();
 		this.setResizable(false);
 		this.setSize(400,300);
-		Marcologin.getLogin().addActionListener(new GestorLogin(Marcologin, this));
+		
+		Marcologin.getLogin().addActionListener(new GestorLogin(Marcologin, this, usrCorriente));
+		usrCorriente.getOperacion().addActionListener(new GestorOpUsrCorriente(this));
+		usrCorriente.getCambiar_pin().addActionListener(new GestorCmbPin(usrCorriente.getCmb_pin()));
+		for(int i=0; i<opUsrCorriente.getBotones().length; i++) {
+			opUsrCorriente.getBotones()[i].addActionListener(new GestorBotoneraOpUsr(i, this));
+		}
+		opUsrCorriente.getSalir().addActionListener(new GestorSalirOpCorriente(this));
 		
 	}
 	
-	
-	public MarcoLogin getMarcoLogin() {
+	public MarcoLogin getMarcologin() {
 		return Marcologin;
 	}
+	public MarcoUsuarioCorriente getUsrCorriente() {
+		return usrCorriente;
+	}
+	public MarcoOpUsrCorriente getOpUsrCorriente() {
+		return opUsrCorriente;
+	}
+	public MarcoSelCuenta getSelCuenta() {
+		return selCuenta;
+	}
+	
+
+
+
 
 	
 	

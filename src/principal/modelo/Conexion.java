@@ -9,7 +9,8 @@ public class Conexion {
 	final private String driver = "com.mysql.cj.jdbc.Driver";
 	final private String host = "localhost";
 	final private String user = "root";
-	final private String passwd = "root";
+	final private String passwd_casa = "root";
+	final private String passwd_cole = "admin";
 	private Connection conexion;
 	private Statement statement;
 	
@@ -20,7 +21,7 @@ public class Conexion {
 			Class.forName(driver);
 			
 			//Configuramos la conexion
-			conexion = DriverManager.getConnection("jdbc:mysql://"+host+"/cajero?"+"user="+user+"&password="+passwd);
+			conexion = DriverManager.getConnection("jdbc:mysql://"+host+"/cajero?"+"user="+user+"&password="+passwd_cole);
 			
 			//Statement
 			statement = conexion.createStatement();

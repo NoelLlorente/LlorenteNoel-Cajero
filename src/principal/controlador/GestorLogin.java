@@ -15,11 +15,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class GestorLogin implements ActionListener, Excepciones{
+	private MarcoUsuarioCorriente usrCorriente;
 	private MarcoLogin Marcologin;
 	private Vista vista;
-	public GestorLogin(MarcoLogin marcologin, Vista vista) {
+	public GestorLogin(MarcoLogin marcologin, Vista vista, MarcoUsuarioCorriente usrCorriente) {
 		this.Marcologin = marcologin;
 		this.vista = vista;
+		this.usrCorriente = usrCorriente;
 	}
 
 
@@ -37,27 +39,23 @@ public class GestorLogin implements ActionListener, Excepciones{
 	if(!loginVacio(dni, passwd)) {
 		if(userDAO.validarUsuario(dni, passwd)) {
 			JOptionPane.showMessageDialog(null, "Inicio de sesión correcto");
-			userDAO.cargarDatos();
+			userDAO.cargarDatosUsr(dni);
 			if(tipo_usr==1) {
-				MarcoUsuarioCorriente muc = null;
-				vista.getContentPane().add(muc = new  MarcoUsuarioCorriente());
+				vista.getContentPane().add(usrCorriente);
 				Marcologin.setVisible(false);
-				muc.setVisible(true);
+				usrCorriente.setVisible(true);
 			
-					System.out.println(userDAO.getUsuarios().toString());
-			
-				
-//				int pos = 0;
-//				for (int i = 0; i < userDAO.getUsuarios().size(); i++) {
-//				    if (userDAO.getUsuarios().get(i).getDni().equals(dni)) {
-//				        pos = i;
-//				        break;
-//				    }
-//				}
-//
-//				muc.getTxt_numTarjeta().setText(userDAO.getUsuarios().get(pos).getTarjeta().getNum_tarjeta());
-//				muc.getTxt_fechaCad().setText(userDAO.getUsuarios().get(pos).getTarjeta().getFecha_caducidad());
-//				muc.getTxt_cvv().setText(userDAO.getUsuarios().get(pos).getTarjeta().getCvv());
+				int pos = 0;
+				for (int i = 0; i < userDAO.getUsuarios().size(); i++) {
+				    if (userDAO.getUsuarios().get(i).getDni().equals(dni)) {
+				        pos = i;
+				        break;
+				    }
+				}
+
+				usrCorriente.getTxt_numTarjeta().setText(userDAO.getUsuarios().get(pos).getTarjeta().getNum_tarjeta());
+				usrCorriente.getTxt_fechaCad().setText(userDAO.getUsuarios().get(pos).getTarjeta().getFecha_caducidad());
+				usrCorriente.getTxt_cvv().setText(userDAO.getUsuarios().get(pos).getTarjeta().getCvv());
 				
 				
 			}else if(tipo_usr==2) {

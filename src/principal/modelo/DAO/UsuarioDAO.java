@@ -63,11 +63,12 @@ public class UsuarioDAO implements Consultas{
 		
 	}
 	
-	public void cargarDatos() {
+	public void cargarDatosUsr(String dni_usr) {
 		try {
-			sta = con.getConexion().createStatement();
-			resultSet = sta.executeQuery(CARGAR_USR);
-			 
+			ps = con.getConexion().prepareStatement(CARGAR_USR);
+			ps.setString(1, dni_usr);
+			resultSet = ps.executeQuery();
+			
 			 while (resultSet.next()) {
 				 String dni = resultSet.getString("dni");
 				 String nombre = resultSet.getString("nombre");
