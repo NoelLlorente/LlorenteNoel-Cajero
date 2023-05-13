@@ -10,22 +10,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MarcoCambiarPin extends JDialog{
-	private JTextField new_pin;
+public class JDIngresarSaldo extends JDialog{
+	private JTextField saldo;
 	private JButton btn;
-	private MarcoUsuarioCorriente marco;
+	private MarcoOpUsrCorriente marco;
 	
-	public MarcoCambiarPin(MarcoUsuarioCorriente marco) {
+	public JDIngresarSaldo(MarcoOpUsrCorriente marco) {
 		this.marco = marco;
-		this.setTitle("Cambiar Pin");
-		new_pin = new JTextField();
-		new_pin.setPreferredSize(new Dimension(130,25));
-		btn = new JButton("Actualizar");
-		JLabel jl = new JLabel("Introduzca el nuevo pin: ");
+		this.setTitle("Ingresar Saldo");
+		saldo = new JTextField();
+		saldo.setPreferredSize(new Dimension(130,25));
+		btn = new JButton("Ingresar");
+		JLabel jl = new JLabel("Introduzca la cantidad a ingresar: ");
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
 		p1.add(jl);
-		p1.add(new_pin);
+		p1.add(saldo);
 		p1.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.add(p1);
 		p2.add(btn);
@@ -34,34 +34,33 @@ public class MarcoCambiarPin extends JDialog{
 		this.setLocationRelativeTo(null);
 		this.setLayout(new BoxLayout(this.getContentPane(),BoxLayout.Y_AXIS));
 		this.pack();
-		
+		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
 	}
 
-	public JTextField getNew_pin() {
-		return new_pin;
+	public JTextField getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(JTextField saldo) {
+		this.saldo = saldo;
 	}
 
 	public JButton getBtn() {
 		return btn;
 	}
 
-	public void setNew_pin(JTextField new_pin) {
-		this.new_pin = new_pin;
-	}
-
 	public void setBtn(JButton btn) {
 		this.btn = btn;
 	}
 
-	public MarcoUsuarioCorriente getMarco() {
+	public MarcoOpUsrCorriente getMarco() {
 		return marco;
 	}
 
-	public void setMarco(MarcoUsuarioCorriente marco) {
+	public void setMarco(MarcoOpUsrCorriente marco) {
 		this.marco = marco;
 	}
-	
-	
+
 	
 }

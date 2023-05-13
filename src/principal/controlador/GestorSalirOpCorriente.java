@@ -14,7 +14,8 @@ public class GestorSalirOpCorriente implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		v.getOpUsrCorriente().setVisible(false);
+		v.getSelCuenta().setVisible(true);
 		
 	}
 }

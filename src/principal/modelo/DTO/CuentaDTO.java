@@ -1,14 +1,18 @@
 package principal.modelo.DTO;
 
+import java.util.ArrayList;
+
 public class CuentaDTO {
 	private String num_cuenta;
 	private String nombre;
 	private double saldo;
-	public CuentaDTO(String num_cuenta, String nombre, double saldo) {
-		super();
+	private ArrayList<HistorialDTO>operaciones;
+	
+	public CuentaDTO(String num_cuenta, String nombre, double saldo, ArrayList<HistorialDTO>operaciones) {
 		this.num_cuenta = num_cuenta;
 		this.nombre = nombre;
 		this.saldo = saldo;
+		this.operaciones = operaciones;
 	}
 	
 public CuentaDTO() {
@@ -34,10 +38,21 @@ public CuentaDTO() {
 		this.saldo = saldo;
 	}
 
+	public ArrayList<HistorialDTO> getOperaciones() {
+		return operaciones;
+	}
+
+	public void setOperaciones(ArrayList<HistorialDTO> operaciones) {
+		this.operaciones = operaciones;
+	}
+
 	@Override
 	public String toString() {
-		return "CuentaDTO [num_cuenta=" + num_cuenta + ", nombre=" + nombre + ", saldo=" + saldo + "]";
+		return "CuentaDTO [num_cuenta=" + num_cuenta + ", nombre=" + nombre + ", saldo=" + saldo + ", operaciones="
+				+ operaciones + "]";
 	}
+
+	
 	
 	
 	

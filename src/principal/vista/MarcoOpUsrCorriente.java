@@ -14,12 +14,20 @@ import javax.swing.JPanel;
 public class MarcoOpUsrCorriente extends JPanel{
 	private JButton[] botones;
 	private JButton salir;
+	private JDIngresarSaldo ingresar;
+	private JDConsultarSaldo consultar;
+	private JDHistorialMov movimientos;
+	private JDRetirarSaldo retirar;
 	public MarcoOpUsrCorriente() {
 		JLabel texto = new JLabel("Seleccione una cuenta");
 		Font font = new Font(texto.getFont().getName(), Font.PLAIN, 30);
 		texto.setFont(font);
 		JPanel text = new JPanel();
 		text.add(texto);
+		ingresar = new JDIngresarSaldo(this);
+		consultar = new JDConsultarSaldo(this);
+		movimientos = new JDHistorialMov(this);
+		retirar = new JDRetirarSaldo(this);
 		String[] nombres = {"Ingresar Saldo", "Retirar Saldo", "Consultar Saldo", "Movimientos"};
 		botones = new JButton[nombres.length];
 		salir = new JButton("Atrás");
@@ -42,6 +50,37 @@ public class MarcoOpUsrCorriente extends JPanel{
 	}
 	
 
+	
+	
+	
+	public JDRetirarSaldo getRetirar() {
+		return retirar;
+	}
+
+
+
+
+
+	public void setRetirar(JDRetirarSaldo retirar) {
+		this.retirar = retirar;
+	}
+
+
+
+
+
+	public JDHistorialMov getMovimientos() {
+		return movimientos;
+	}
+
+
+
+	public void setMovimientos(JDHistorialMov movimientos) {
+		this.movimientos = movimientos;
+	}
+
+
+
 	public JButton[] getBotones() {
 		return botones;
 	}
@@ -57,5 +96,27 @@ public class MarcoOpUsrCorriente extends JPanel{
 	public void setSalir(JButton salir) {
 		this.salir = salir;
 	}
+
+
+	public JDIngresarSaldo getIngresar() {
+		return ingresar;
+	}
+
+
+	public void setIngresar(JDIngresarSaldo ingresar) {
+		this.ingresar = ingresar;
+	}
+
+
+	public JDConsultarSaldo getConsultar() {
+		return consultar;
+	}
+
+
+	public void setConsultar(JDConsultarSaldo consultar) {
+		this.consultar = consultar;
+	}
+	
+	
 	
 }

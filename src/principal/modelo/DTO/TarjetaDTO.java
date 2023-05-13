@@ -61,6 +61,12 @@ public class TarjetaDTO {
 		this.cuenta = cuenta;
 	}
 
+	@Override
+	public String toString() {
+		return "TarjetaDTO [num_tarjeta=" + num_tarjeta + ", pin=" + pin + ", cvv=" + cvv + ", fecha_caducidad="
+				+ fecha_caducidad + ", cuenta=" + cuenta + "]";
+	}
+
 
 	
 	

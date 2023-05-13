@@ -14,7 +14,7 @@ import principal.vista.Vista;
 public class GestorCmbPin implements ActionListener, Excepciones {
 	private MarcoCambiarPin cmb_pin;
 	
-	public GestorCmbPin( MarcoCambiarPin cmb_pin) {
+	public GestorCmbPin(MarcoCambiarPin cmb_pin) {
 		this.cmb_pin = cmb_pin;
 	}
 
@@ -22,7 +22,6 @@ public class GestorCmbPin implements ActionListener, Excepciones {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		cmb_pin = new MarcoCambiarPin();
 		cmb_pin.setVisible(true);
 		
 		cmb_pin.getBtn().addActionListener(new ActionListener() {
@@ -32,9 +31,8 @@ public class GestorCmbPin implements ActionListener, Excepciones {
 				TarjetaDAO tarjeta = new TarjetaDAO();
 				String nuevoPin = cmb_pin.getNew_pin().getText();
 				if(!longitudNewPin(nuevoPin)) {
-					tarjeta.actualizarPin(nuevoPin);
+					tarjeta.actualizarPin(nuevoPin, cmb_pin);
 					
-				
 				}
 				
 			}
