@@ -1,4 +1,4 @@
-package principal.controlador;
+package principal.controlador.UsuarioCorriente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 import principal.modelo.DAO.TarjetaDAO;
 import principal.modelo.DAO.UsuarioDAO;
 import principal.vista.Excepciones;
-import principal.vista.MarcoCambiarPin;
 import principal.vista.Vista;
+import principal.vista.UsuarioCorriente.MarcoCambiarPin;
 
 public class GestorCmbPin implements ActionListener, Excepciones {
 	private MarcoCambiarPin cmb_pin;

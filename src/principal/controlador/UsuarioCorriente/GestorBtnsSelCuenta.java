@@ -1,4 +1,4 @@
-package principal.controlador;
+package principal.controlador.UsuarioCorriente;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import principal.vista.MarcoOpUsrCorriente;
-import principal.vista.MarcoSelCuenta;
 import principal.vista.Vista;
+import principal.vista.UsuarioCorriente.MarcoOpUsrCorriente;
+import principal.vista.UsuarioCorriente.MarcoSelCuenta;
 
 public class GestorBtnsSelCuenta implements ActionListener {
 	private int acc;

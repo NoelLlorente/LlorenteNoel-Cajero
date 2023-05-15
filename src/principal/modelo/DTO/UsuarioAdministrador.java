@@ -7,5 +7,6 @@ public class UsuarioAdministrador extends UsuarioDTO{
 	}
 	
 	public UsuarioAdministrador() {
+		
 	}
 }

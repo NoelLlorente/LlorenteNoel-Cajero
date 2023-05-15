@@ -11,7 +11,7 @@ import principal.modelo.Conexion;
 import principal.modelo.Consultas;
 import principal.modelo.DTO.TarjetaDTO;
 import principal.modelo.DTO.UsuarioDTO;
-import principal.vista.MarcoCambiarPin;
+import principal.vista.UsuarioCorriente.MarcoCambiarPin;
 
 public class TarjetaDAO implements Consultas{
 	private TarjetaDTO tarjeta;

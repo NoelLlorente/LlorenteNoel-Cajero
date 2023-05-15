@@ -5,13 +5,19 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import principal.controlador.GestorBotoneraOpUsr;
-import principal.controlador.GestorBtnsSelCuenta;
-import principal.controlador.GestorCmbPin;
 import principal.controlador.GestorLogin;
-import principal.controlador.GestorSelCuentaUsrCorriente;
-import principal.controlador.GestorSalirOpCorriente;
+import principal.controlador.UsuarioAdministrador.GestorBtnMarcoAdmin;
+import principal.controlador.UsuarioCorriente.GestorBotoneraOpUsr;
+import principal.controlador.UsuarioCorriente.GestorBtnsSelCuenta;
+import principal.controlador.UsuarioCorriente.GestorCmbPin;
+import principal.controlador.UsuarioCorriente.GestorSalirOpCorriente;
+import principal.controlador.UsuarioCorriente.GestorSelCuentaUsrCorriente;
 import principal.modelo.DTO.UsuarioDTO;
+import principal.vista.UsuarioAdministrador.MarcoUsuarioAdministrador;
+import principal.vista.UsuarioCorriente.MarcoLogin;
+import principal.vista.UsuarioCorriente.MarcoOpUsrCorriente;
+import principal.vista.UsuarioCorriente.MarcoSelCuenta;
+import principal.vista.UsuarioCorriente.MarcoUsuarioCorriente;
 
 
 public class Vista extends JFrame{
@@ -20,12 +26,16 @@ public class Vista extends JFrame{
 	private MarcoUsuarioCorriente usrCorriente;
 	private MarcoOpUsrCorriente opUsrCorriente;
 	private MarcoSelCuenta selCuenta;
+	private MarcoUsuarioAdministrador usrAdmin;
 	public Vista() {
 		super("Cajero Testing");
+		
 		Marcologin = new MarcoLogin();
 		usrCorriente = new MarcoUsuarioCorriente();
 		opUsrCorriente = new MarcoOpUsrCorriente();
 		selCuenta = new MarcoSelCuenta();
+		usrAdmin = new MarcoUsuarioAdministrador();
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.setLocationRelativeTo(null);
@@ -35,6 +45,8 @@ public class Vista extends JFrame{
 		this.pack();
 		this.setResizable(false);
 		this.setSize(400,300);
+		
+		//Controladores
 		Marcologin.getLogin().addActionListener(new GestorLogin(Marcologin, this, usrCorriente));
 		usrCorriente.getOperacion().addActionListener(new GestorSelCuentaUsrCorriente(this));
 		usrCorriente.getCambiar_pin().addActionListener(new GestorCmbPin(usrCorriente.getCmb_pin()));
@@ -47,10 +59,20 @@ public class Vista extends JFrame{
 			selCuenta.getBotones()[i].addActionListener(new GestorBtnsSelCuenta(i, this));
 		}
 		
+		for(int i=0; i<usrAdmin.getBtn_marcoAdm().length; i++) {	
+			usrAdmin.getBtn_marcoAdm()[i].addActionListener(new GestorBtnMarcoAdmin(i, this));
+		}
+		
 		
 		
 	}
 	
+	
+	
+	public MarcoUsuarioAdministrador getUsrAdmin() {
+		return usrAdmin;
+	}
+
 	public MarcoLogin getMarcologin() {
 		return Marcologin;
 	}
@@ -63,6 +85,7 @@ public class Vista extends JFrame{
 	public MarcoSelCuenta getSelCuenta() {
 		return selCuenta;
 	}
+	
 	
 
 

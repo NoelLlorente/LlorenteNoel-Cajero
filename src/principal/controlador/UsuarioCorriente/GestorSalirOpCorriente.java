@@ -1,4 +1,4 @@
-package principal.controlador;
+package principal.controlador.UsuarioCorriente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

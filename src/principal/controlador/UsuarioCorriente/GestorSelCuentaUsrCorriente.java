@@ -1,12 +1,12 @@
-package principal.controlador;
+package principal.controlador.UsuarioCorriente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import principal.modelo.DAO.UsuarioDAO;
 import principal.modelo.DTO.UsuarioDTO;
-import principal.vista.MarcoSelCuenta;
-import principal.vista.MarcoUsuarioCorriente;
 import principal.vista.Vista;
+import principal.vista.UsuarioCorriente.MarcoSelCuenta;
+import principal.vista.UsuarioCorriente.MarcoUsuarioCorriente;
 import principal.modelo.DTO.*;
 import java.util.ArrayList;
 

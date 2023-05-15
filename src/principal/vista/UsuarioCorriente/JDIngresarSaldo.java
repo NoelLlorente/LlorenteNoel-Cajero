@@ -1,4 +1,4 @@
-package principal.vista;
+package principal.vista.UsuarioCorriente;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -10,17 +10,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class JDRetirarSaldo extends JDialog{
+public class JDIngresarSaldo extends JDialog{
 	private JTextField saldo;
 	private JButton btn;
 	private MarcoOpUsrCorriente marco;
 	
-	public JDRetirarSaldo(MarcoOpUsrCorriente marco) {
+	public JDIngresarSaldo(MarcoOpUsrCorriente marco) {
 		this.marco = marco;
-		this.setTitle("Retirar Saldo");
+		this.setTitle("Ingresar Saldo");
 		saldo = new JTextField();
 		saldo.setPreferredSize(new Dimension(130,25));
-		btn = new JButton("Retirar");
+		btn = new JButton("Ingresar");
 		JLabel jl = new JLabel("Introduzca la cantidad a ingresar: ");
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
@@ -61,6 +61,6 @@ public class JDRetirarSaldo extends JDialog{
 	public void setMarco(MarcoOpUsrCorriente marco) {
 		this.marco = marco;
 	}
-	
+
 	
 }

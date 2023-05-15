@@ -1,4 +1,4 @@
-package principal.vista;
+package principal.vista.UsuarioCorriente;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

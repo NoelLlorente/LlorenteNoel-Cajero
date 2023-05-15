@@ -1,4 +1,4 @@
-package principal.controlador;
+package principal.controlador.UsuarioCorriente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -98,11 +98,14 @@ public class GestorBotoneraOpUsr implements ActionListener, Excepciones {
 							
 							if(!validarStringSaldo(cade)) {
 								double saldo = Double.parseDouble(cade);						
-							if(saldo<cajerodto.getSaldo()||saldo<cuentaSel.getSaldo()) {
-								cuenta.retirarSaldo(cuentaSel.getNum_cuenta(), saldo, v.getOpUsrCorriente().getRetirar());	
-								
+							if(saldo<cajerodto.getSaldo()) {
+								if(saldo<cuentaSel.getSaldo()) {
+									cuenta.retirarSaldo(cuentaSel.getNum_cuenta(), saldo, v.getOpUsrCorriente().getRetirar());	
 								}else {
-									JOptionPane.showMessageDialog(null, "La cantidad introducida supera el saldo del cajero o cuenta, intente con otra cantidad");
+									JOptionPane.showMessageDialog(null, "Error, la cantidad ingresada supera el saldo de la cuenta");
+								}
+							}else {
+									JOptionPane.showMessageDialog(null, "Error, la cantidad ingresada supera el saldo del cajero");
 								}
 								
 							}

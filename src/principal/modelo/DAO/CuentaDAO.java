@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import principal.modelo.Conexion;
 import principal.modelo.Consultas;
 import principal.vista.Excepciones;
-import principal.vista.JDIngresarSaldo;
-import principal.vista.JDRetirarSaldo;
+import principal.vista.UsuarioCorriente.JDIngresarSaldo;
+import principal.vista.UsuarioCorriente.JDRetirarSaldo;
 
 public class CuentaDAO implements Consultas, Excepciones{
 	 	private PreparedStatement ps = null;
