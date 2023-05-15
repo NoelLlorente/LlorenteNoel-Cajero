@@ -5,6 +5,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 import principal.modelo.Conexion;
 import principal.modelo.Consultas;
 import principal.modelo.DTO.CajeroDTO;
@@ -14,6 +18,7 @@ import principal.modelo.DTO.TarjetaDTO;
 import principal.modelo.DTO.UsuarioAdministrador;
 import principal.modelo.DTO.UsuarioCorriente;
 import principal.modelo.DTO.UsuarioDTO;
+import principal.vista.UsuarioAdministrador.JDMarcoAdmUsuarios;
 
 public class UsuarioDAO implements Consultas {
     private String clave = "admin";
@@ -164,6 +169,170 @@ public class UsuarioDAO implements Consultas {
         return cuentas;
     }
 
+    
+    
+    public void cargarUsuarios(JDMarcoAdmUsuarios admUsr) {
+    	String[] datos = new String[7];
+    	
+    	String codSQL = null;
+    	
+    	if(admUsr.getComboBuscar().getSelectedIndex()==0) {
+    		codSQL = LISTAR_USUARIOS;
+    	}else if(admUsr.getComboBuscar().getSelectedIndex()==1) {
+    		codSQL = FILTRAR_USR_DNI+"'"+admUsr.getTxtBuscar().getText()+"'";
+    	}else if(admUsr.getComboBuscar().getSelectedIndex()==2) {
+    		codSQL = FILTRAR_USR_NOMBRE+"'"+admUsr.getTxtBuscar().getText()+"'";
+    	}else if(admUsr.getComboBuscar().getSelectedIndex()==3) {
+    		codSQL = FILTRAR_USR_APELLIDOS+"'"+admUsr.getTxtBuscar().getText()+"'";
+    	}else if(admUsr.getComboBuscar().getSelectedIndex()==4) {
+    		codSQL = FILTRAR_USR_FECHA+"'"+admUsr.getTxtBuscar().getText()+"'";
+    	}else if(admUsr.getComboBuscar().getSelectedIndex()==5) {
+    		codSQL =FILTRAR_USR_TELF+"'"+admUsr.getTxtBuscar().getText()+"'";
+    	}else if(admUsr.getComboBuscar().getSelectedIndex()==6) {
+    		codSQL = FILTRAR_USR_DIR+"'"+admUsr.getTxtBuscar().getText()+"'";
+    	}else if(admUsr.getComboBuscar().getSelectedIndex()==7) {
+    		codSQL = FILTRAR_USR_TIPO+"'"+admUsr.getTxtBuscar().getText()+"'";
+    	}
+    	
+    	
+    	try {
+    		sta = con.getConexion().createStatement();
+    		resultSet = sta.executeQuery(codSQL);
+    		DefaultTableModel modelo = admUsr.getModelo();
+    		modelo.setRowCount(0);
+    		while(resultSet.next()) {
+    			datos[0] = resultSet.getString(1);
+    			datos[1] = resultSet.getString(2);
+    			datos[2] = resultSet.getString(3);
+    			datos[3] = resultSet.getString(4);
+    			datos[4] = resultSet.getString(5);
+    			datos[5] = resultSet.getString(6);
+    			datos[6] = resultSet.getString(7);
+    			
+    			
+    			
+    			modelo.addRow(datos);
+    		}
+ 
+    		JTable tabla = admUsr.getTable();
+    		tabla.setModel(modelo);
+    		
+    	}catch(Exception e) {	
+    		JOptionPane.showMessageDialog(null, "Error, no se cargaron los datos a la tabla, contactar con administrador");
+    		System.out.println("Error, no se cargaron los usuarios: "+e.getLocalizedMessage());
+    	}
+     }
+    
+   
+    public void modificarUsuario(JDMarcoAdmUsuarios admUsr) {
+    	int fila = admUsr.getTable().getSelectedRow();
+    	
+    	if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila para modificar.");
+            return;
+        }
+    	if (admUsr.getTable().getCellEditor() != null) {
+            admUsr.getTable().getCellEditor().stopCellEditing();
+        }
+
+    	
+    	String dni = admUsr.getTable().getValueAt(fila, 0).toString();
+    	String nombre = admUsr.getTable().getValueAt(fila, 1).toString();
+    	String apellidos = admUsr.getTable().getValueAt(fila, 2).toString();
+    	String fecha_nac = admUsr.getTable().getValueAt(fila, 3).toString();
+    	String telf = admUsr.getTable().getValueAt(fila, 4).toString();
+    	String direccion = admUsr.getTable().getValueAt(fila, 5).toString();
+    	int tipo_usr = Integer.parseInt(admUsr.getTable().getValueAt(fila, 6).toString());
+    	
+    	try {
+    		ps = con.getConexion().prepareStatement(MODIFICAR_USR);
+    		ps.setString(1, nombre);
+    		ps.setString(2, apellidos);
+    		ps.setString(3, fecha_nac);
+    		ps.setString(4, telf);
+    		ps.setString(5, direccion);
+    		ps.setInt(6, tipo_usr);
+    		ps.setString(7, dni);
+    		int rowsAffected = ps.executeUpdate();
+    		
+   		 if (rowsAffected > 0) {
+	             JOptionPane.showMessageDialog(null, "¡Datos Actualizados Correctamente!");
+	         } else {
+	             JOptionPane.showMessageDialog(null, "Error, No se pudo actualizar");
+	        }
+   		 
+   		cargarUsuarios(admUsr.getMarcoAdm().getAdmUsr());
+   		admUsr.getModelo().fireTableDataChanged();
+   		 
+    	}catch(Exception e) {
+    		JOptionPane.showMessageDialog(null, "Error al modificar los datos del usuario");
+    		System.out.println("Error al modificar los datos del usuario"+e.getLocalizedMessage());
+    	}
+    	
+    	
+    }
+    
+    
+    public void eliminarUsuario(JDMarcoAdmUsuarios admUsr) {
+    	int fila = admUsr.getTable().getSelectedRow();
+    	
+    	if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila para eliminar.");
+            return;
+        }
+    	
+    	
+    	String dni = admUsr.getTable().getValueAt(fila, 0).toString();
+ 
+    	
+    	try {
+    		ps = con.getConexion().prepareStatement(ELIMINAR_USR);
+    		ps.setString(1, dni);
+    		int rowsAffected = ps.executeUpdate();
+    		
+   		 if (rowsAffected > 0) {
+	             JOptionPane.showMessageDialog(null, "¡Usuario Eliminado Correctamente!");
+	         } else {
+	             JOptionPane.showMessageDialog(null, "Error, No se pudo eliminar el usuario");
+	        }
+   		 
+   		cargarUsuarios(admUsr.getMarcoAdm().getAdmUsr());
+   		admUsr.getModelo().fireTableDataChanged();
+    	}catch(Exception e) {
+    		JOptionPane.showMessageDialog(null, "Error al eliminar el usuario, contactar con administrador");
+    		System.out.println("Error al eliminar usuario"+e.getLocalizedMessage());
+    	}
+    	
+    }
+    
+    
+    public void crearUsuario(JDMarcoAdmUsuarios admUsr) {
+    	
+    	
+    	try {
+    		ps = con.getConexion().prepareStatement(INSERTAR_USR);
+    		ps.setString(1, admUsr.getCrearUsr().getTxtDni().getText());
+    		ps.setString(2, admUsr.getCrearUsr().getTxtNombre().getText());
+    		ps.setString(3, admUsr.getCrearUsr().getTxtApellidos().getText());
+    		ps.setString(4, admUsr.getCrearUsr().getTxtFechaNac().getText());
+    		ps.setString(5, admUsr.getCrearUsr().getTxtTelf().getText());
+    		ps.setString(6, admUsr.getCrearUsr().getTxtDirec().getText());
+    		ps.setInt(7, Integer.parseInt(admUsr.getCrearUsr().getTxtTipo().getText()));
+    		int rowsAffected = ps.executeUpdate();
+    		
+   		 if (rowsAffected > 0) {
+	             JOptionPane.showMessageDialog(null, "¡Usuario creado correctamente!");
+	         } else {
+	             JOptionPane.showMessageDialog(null, "Error, No se pudo crear el usuario");
+	        }
+   		 admUsr.getCrearUsr().dispose();
+   		cargarUsuarios(admUsr.getMarcoAdm().getAdmUsr());
+   		admUsr.getModelo().fireTableDataChanged();
+    	}catch(Exception e) {
+    		JOptionPane.showMessageDialog(null, "Error al crear el usuario, contacte un administrador");
+    		System.out.println("Error, No se pudo crear el usuario: "+e.getLocalizedMessage());
+    	}
+    }
     
 
 		public Conexion getCon() {

@@ -22,7 +22,7 @@ public class Conexion {
 			Class.forName(driver);
 			
 			//Configuramos la conexion
-			conexion = DriverManager.getConnection("jdbc:mysql://"+host+"/cajero?"+"user="+user+"&password="+passwd_cole);
+			conexion = DriverManager.getConnection("jdbc:mysql://"+host+"/cajero?"+"user="+user+"&password="+passwd_casa);
 			
 			//Statement
 			statement = conexion.createStatement();

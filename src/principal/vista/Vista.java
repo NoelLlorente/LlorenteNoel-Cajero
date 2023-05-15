@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import principal.controlador.GestorLogin;
+import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpUsr;
+import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarUsr;
 import principal.controlador.UsuarioAdministrador.GestorBtnMarcoAdmin;
 import principal.controlador.UsuarioCorriente.GestorBotoneraOpUsr;
 import principal.controlador.UsuarioCorriente.GestorBtnsSelCuenta;
@@ -63,7 +65,11 @@ public class Vista extends JFrame{
 			usrAdmin.getBtn_marcoAdm()[i].addActionListener(new GestorBtnMarcoAdmin(i, this));
 		}
 		
+		usrAdmin.getAdmUsr().getBuscar().addActionListener(new GestorAdmFiltrarUsr(this));
 		
+		for(int i=0; i<usrAdmin.getAdmUsr().getBtn().length; i++) {
+			usrAdmin.getAdmUsr().getBtn()[i].addActionListener(new GestorAdmBtnOpUsr(i, this));
+		}
 		
 	}
 	

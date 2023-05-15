@@ -88,10 +88,10 @@ public class GestorLogin implements ActionListener, Excepciones{
 				
 				
 			}else if(tipo_usr==2) {
-				MarcoUsuarioAdministrador mua = null;
-				vista.getContentPane().add(mua = new  MarcoUsuarioAdministrador());
+
 				Marcologin.setVisible(false);
-				mua.setVisible(true);
+				vista.getContentPane().add(vista.getUsrAdmin());
+				vista.getUsrAdmin().setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(null, "Error, al tratar el tipo de usuario");
 			}

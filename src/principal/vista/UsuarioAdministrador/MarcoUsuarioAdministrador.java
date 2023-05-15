@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 
 public class MarcoUsuarioAdministrador extends JPanel{
 	private JButton[] btn_marcoAdm;
-	private MarcoAdmUsuarios admUsr;
+	private JDMarcoAdmUsuarios admUsr;
 	
 	public MarcoUsuarioAdministrador() {
-		admUsr = new MarcoAdmUsuarios(this);
+		admUsr = new JDMarcoAdmUsuarios(this);
 		JLabel texto = new JLabel("Panel Administrador");
 		Font font = new Font(texto.getFont().getName(), Font.PLAIN, 30);
 		texto.setFont(font);
@@ -44,7 +44,7 @@ public class MarcoUsuarioAdministrador extends JPanel{
 		return btn_marcoAdm;
 	}
 
-	public MarcoAdmUsuarios getAdmUsr() {
+	public JDMarcoAdmUsuarios getAdmUsr() {
 		return admUsr;
 	}
 
@@ -52,7 +52,7 @@ public class MarcoUsuarioAdministrador extends JPanel{
 		this.btn_marcoAdm = btn_marcoAdm;
 	}
 
-	public void setAdmUsr(MarcoAdmUsuarios admUsr) {
+	public void setAdmUsr(JDMarcoAdmUsuarios admUsr) {
 		this.admUsr = admUsr;
 	}
 	
