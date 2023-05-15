@@ -43,7 +43,7 @@ public interface Excepciones {
 	
 	
 	public default boolean validarCamposUsuarios(String dni, String nombre, String apellidos, String fecha, String telf, String direccion, String tipo) {
-	    if (dni.length() < 8 || dni.length() > 9) {
+		if (dni.length() < 8 || dni.length() > 9) {
 	        JOptionPane.showMessageDialog(null, "El DNI introducido no cumple con las longitudes del sistema o está vacío");
 	        return false;
 	    }
@@ -53,17 +53,17 @@ public interface Excepciones {
 	        return false;
 	    }
 
-	    if (nombre.isEmpty() || !nombre.matches("[a-zA-Z]+")) {
+	    if (nombre.isEmpty() || !nombre.matches("[a-zA-Z\\s]+")) {
 	        JOptionPane.showMessageDialog(null, "Error, el nombre no puede estar vacío y solo puede contener letras");
 	        return false;
 	    }
 
-	    if (apellidos.isEmpty() || !apellidos.matches("[a-zA-Z]+")) {
+	    if (apellidos.isEmpty() || !apellidos.matches("[a-zA-Z\\s]+")) {
 	        JOptionPane.showMessageDialog(null, "Error, los apellidos no pueden estar vacíos y solo pueden contener letras");
 	        return false;
 	    }
 
-	    if (fecha.length() != 10 || !fecha.matches("\\d{4}/\\d{2}/\\d{2}")) {
+	    if (fecha.length() != 10 || (!fecha.matches("\\d{4}/\\d{2}/\\d{2}") && !fecha.matches("\\d{4}-\\d{2}-\\d{2}"))) {
 	        JOptionPane.showMessageDialog(null, "Error, la fecha es inválida o no cumple con el formato yyyy/mm/dd");
 	        return false;
 	    }
@@ -89,11 +89,9 @@ public interface Excepciones {
 	        return false;
 	    }
 	    
-	    
-	    
-
-	    return true;
+	return true;
 	}
+	
 	
 	
 }
