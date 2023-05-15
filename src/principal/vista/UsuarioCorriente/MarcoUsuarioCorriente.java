@@ -19,7 +19,7 @@ public class MarcoUsuarioCorriente extends JPanel{
 	private JTextField txt_numTarjeta;
 	private JTextField txt_fechaCad;
 	private JTextField txt_cvv;
-	private MarcoCambiarPin cmb_pin;
+	private JDCambiarPin cmb_pin;
 	private JButton operacion;
 	private JButton cambiar_pin;
 	
@@ -33,7 +33,7 @@ public class MarcoUsuarioCorriente extends JPanel{
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();
 		
-		cmb_pin = new MarcoCambiarPin(this);
+		cmb_pin = new JDCambiarPin(this);
 		jl_numTarjeta = new JLabel("Número Tarjeta:");
 		jl_fechaCad = new JLabel("Fecha caducidad:");
 		jl_cvv = new JLabel("CVV:");
@@ -72,12 +72,12 @@ public class MarcoUsuarioCorriente extends JPanel{
 
 
 
-	public MarcoCambiarPin getCmb_pin() {
+	public JDCambiarPin getCmb_pin() {
 		return cmb_pin;
 	}
 
 
-	public void setCmb_pin(MarcoCambiarPin cmb_pin) {
+	public void setCmb_pin(JDCambiarPin cmb_pin) {
 		this.cmb_pin = cmb_pin;
 	}
 

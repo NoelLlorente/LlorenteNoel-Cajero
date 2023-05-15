@@ -8,10 +8,15 @@ import javax.swing.JFrame;
 import principal.controlador.GestorLogin;
 import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpUsr;
 import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarUsr;
+import principal.controlador.UsuarioAdministrador.GestorBtnCrearUsr;
 import principal.controlador.UsuarioAdministrador.GestorBtnMarcoAdmin;
 import principal.controlador.UsuarioCorriente.GestorBotoneraOpUsr;
+import principal.controlador.UsuarioCorriente.GestorBtnCambiarPin;
 import principal.controlador.UsuarioCorriente.GestorBtnsSelCuenta;
 import principal.controlador.UsuarioCorriente.GestorCmbPin;
+import principal.controlador.UsuarioCorriente.GestorIngresarSaldo;
+import principal.controlador.UsuarioCorriente.GestorRetirarSaldo;
+import principal.controlador.UsuarioCorriente.GestorBtnSalirConsultar;
 import principal.controlador.UsuarioCorriente.GestorSalirOpCorriente;
 import principal.controlador.UsuarioCorriente.GestorSelCuentaUsrCorriente;
 import principal.modelo.DTO.UsuarioDTO;
@@ -61,6 +66,11 @@ public class Vista extends JFrame{
 			selCuenta.getBotones()[i].addActionListener(new GestorBtnsSelCuenta(i, this));
 		}
 		
+		opUsrCorriente.getIngresar().getBtn().addActionListener(new GestorIngresarSaldo(this));
+		opUsrCorriente.getRetirar().getBtn().addActionListener(new GestorRetirarSaldo(this));
+		opUsrCorriente.getConsultar().getSalir().addActionListener(new GestorBtnSalirConsultar(this));
+		usrCorriente.getCmb_pin().getBtn().addActionListener(new GestorBtnCambiarPin(usrCorriente.getCmb_pin()));
+		
 		for(int i=0; i<usrAdmin.getBtn_marcoAdm().length; i++) {	
 			usrAdmin.getBtn_marcoAdm()[i].addActionListener(new GestorBtnMarcoAdmin(i, this));
 		}
@@ -71,6 +81,7 @@ public class Vista extends JFrame{
 			usrAdmin.getAdmUsr().getBtn()[i].addActionListener(new GestorAdmBtnOpUsr(i, this));
 		}
 		
+		usrAdmin.getAdmUsr().getCrearUsr().getCrear().addActionListener(new GestorBtnCrearUsr(this));	
 	}
 	
 	

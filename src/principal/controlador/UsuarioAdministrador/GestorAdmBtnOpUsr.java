@@ -30,18 +30,6 @@ public class GestorAdmBtnOpUsr implements ActionListener{
 		switch(acc) {
 		case 0:
 			v.getUsrAdmin().getAdmUsr().getCrearUsr().setVisible(true);
-			v.getUsrAdmin().getAdmUsr().getCrearUsr().getCrear().addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					  if (validarCamposVacios(v.getUsrAdmin().getAdmUsr().getCrearUsr())) {
-	                        usr.crearUsuario(v.getUsrAdmin().getAdmUsr());
-	                    } else {
-	                        JOptionPane.showMessageDialog(null, "Error, hay campos vacíos");
-	                    }
-				}
-				
-			});
 			break;
 		case 1:
 			usr.modificarUsuario(v.getUsrAdmin().getAdmUsr());
@@ -57,16 +45,5 @@ public class GestorAdmBtnOpUsr implements ActionListener{
 
 	
 	
-	private boolean validarCamposVacios(JDCrearUsuario crearUsuarioDialog) {
-	    String dni = crearUsuarioDialog.getTxtDni().getText();
-	    String nombre = crearUsuarioDialog.getTxtNombre().getText();
-	    String apellidos = crearUsuarioDialog.getTxtApellidos().getText();
-	    String fecha = crearUsuarioDialog.getTxtFechaNac().getText();
-	    String telf = crearUsuarioDialog.getTxtTelf().getText();
-	    String direccion = crearUsuarioDialog.getTxtDirec().getText();
-	    String tipo = crearUsuarioDialog.getTxtTipo().getText();
-
-	    return !dni.isEmpty() && !nombre.isEmpty() && !apellidos.isEmpty() &&
-	            !fecha.isEmpty() && !telf.isEmpty() && !direccion.isEmpty() && !tipo.isEmpty();
-	}
+	
 }

@@ -11,7 +11,7 @@ import principal.modelo.Conexion;
 import principal.modelo.Consultas;
 import principal.modelo.DTO.TarjetaDTO;
 import principal.modelo.DTO.UsuarioDTO;
-import principal.vista.UsuarioCorriente.MarcoCambiarPin;
+import principal.vista.UsuarioCorriente.JDCambiarPin;
 
 public class TarjetaDAO implements Consultas{
 	private TarjetaDTO tarjeta;
@@ -21,7 +21,7 @@ public class TarjetaDAO implements Consultas{
 	private Conexion con = new Conexion();
 
 
-	public void actualizarPin(String pin, MarcoCambiarPin cmb_pin) {
+	public void actualizarPin(String pin, JDCambiarPin cmb_pin) {
 	     try {
 	         this.ps = con.getConexion().prepareStatement(ACTUALIZAR_PIN);
 	         this.ps.setString(1, pin);

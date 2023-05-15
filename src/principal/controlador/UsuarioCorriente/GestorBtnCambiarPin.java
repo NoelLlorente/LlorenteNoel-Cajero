@@ -3,18 +3,17 @@ package principal.controlador.UsuarioCorriente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JOptionPane;
-
 import principal.modelo.DAO.TarjetaDAO;
-import principal.modelo.DAO.UsuarioDAO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 import principal.vista.UsuarioCorriente.JDCambiarPin;
 
-public class GestorCmbPin implements ActionListener, Excepciones {
+public class GestorBtnCambiarPin implements ActionListener, Excepciones{
 	private JDCambiarPin cmb_pin;
+
 	
-	public GestorCmbPin(JDCambiarPin cmb_pin) {
+
+	public GestorBtnCambiarPin(JDCambiarPin cmb_pin) {
 		this.cmb_pin = cmb_pin;
 	}
 
@@ -22,6 +21,13 @@ public class GestorCmbPin implements ActionListener, Excepciones {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		cmb_pin.setVisible(true);
-	}}
-
+		TarjetaDAO tarjeta = new TarjetaDAO();
+		String nuevoPin = cmb_pin.getNew_pin().getText();
+		if(!longitudNewPin(nuevoPin)) {
+			tarjeta.actualizarPin(nuevoPin, cmb_pin);
+			
+		}
+		
+	}
+	
+}

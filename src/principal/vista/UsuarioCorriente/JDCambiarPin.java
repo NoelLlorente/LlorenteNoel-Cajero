@@ -10,12 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MarcoCambiarPin extends JDialog{
+public class JDCambiarPin extends JDialog{
 	private JTextField new_pin;
 	private JButton btn;
 	private MarcoUsuarioCorriente marco;
 	
-	public MarcoCambiarPin(MarcoUsuarioCorriente marco) {
+	public JDCambiarPin(MarcoUsuarioCorriente marco) {
 		this.marco = marco;
 		this.setTitle("Cambiar Pin");
 		new_pin = new JTextField();

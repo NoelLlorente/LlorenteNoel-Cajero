@@ -93,5 +93,18 @@ public interface Excepciones {
 	}
 	
 	
+	public default boolean validarCamposVacios(JDCrearUsuario crearUsuarioDialog) {
+	    String dni = crearUsuarioDialog.getTxtDni().getText();
+	    String nombre = crearUsuarioDialog.getTxtNombre().getText();
+	    String apellidos = crearUsuarioDialog.getTxtApellidos().getText();
+	    String fecha = crearUsuarioDialog.getTxtFechaNac().getText();
+	    String telf = crearUsuarioDialog.getTxtTelf().getText();
+	    String direccion = crearUsuarioDialog.getTxtDirec().getText();
+	    String tipo = crearUsuarioDialog.getTxtTipo().getText();
+
+	    return !dni.isEmpty() && !nombre.isEmpty() && !apellidos.isEmpty() &&
+	            !fecha.isEmpty() && !telf.isEmpty() && !direccion.isEmpty() && !tipo.isEmpty();
+	}
+	
 	
 }
