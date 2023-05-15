@@ -18,9 +18,10 @@ import principal.modelo.DTO.TarjetaDTO;
 import principal.modelo.DTO.UsuarioAdministrador;
 import principal.modelo.DTO.UsuarioCorriente;
 import principal.modelo.DTO.UsuarioDTO;
+import principal.vista.Excepciones;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmUsuarios;
 
-public class UsuarioDAO implements Consultas {
+public class UsuarioDAO implements Consultas, Excepciones {
     private String clave = "admin";
     public ArrayList<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
     private PreparedStatement ps = null;
@@ -242,7 +243,9 @@ public class UsuarioDAO implements Consultas {
     	String fecha_nac = admUsr.getTable().getValueAt(fila, 3).toString();
     	String telf = admUsr.getTable().getValueAt(fila, 4).toString();
     	String direccion = admUsr.getTable().getValueAt(fila, 5).toString();
-    	int tipo_usr = Integer.parseInt(admUsr.getTable().getValueAt(fila, 6).toString());
+    	String tipo_usr = admUsr.getTable().getValueAt(fila, 6).toString();
+    	
+    	if(validarCamposUsuarios(dni, nombre, apellidos, fecha_nac, telf, direccion, tipo_usr)) {
     	
     	try {
     		ps = con.getConexion().prepareStatement(MODIFICAR_USR);
@@ -251,7 +254,7 @@ public class UsuarioDAO implements Consultas {
     		ps.setString(3, fecha_nac);
     		ps.setString(4, telf);
     		ps.setString(5, direccion);
-    		ps.setInt(6, tipo_usr);
+    		ps.setInt(6, Integer.parseInt(tipo_usr));
     		ps.setString(7, dni);
     		int rowsAffected = ps.executeUpdate();
     		
@@ -269,6 +272,7 @@ public class UsuarioDAO implements Consultas {
     		System.out.println("Error al modificar los datos del usuario"+e.getLocalizedMessage());
     	}
     	
+    	}
     	
     }
     
@@ -307,32 +311,44 @@ public class UsuarioDAO implements Consultas {
     
     
     public void crearUsuario(JDMarcoAdmUsuarios admUsr) {
-    	
-    	
-    	try {
-    		ps = con.getConexion().prepareStatement(INSERTAR_USR);
-    		ps.setString(1, admUsr.getCrearUsr().getTxtDni().getText());
-    		ps.setString(2, admUsr.getCrearUsr().getTxtNombre().getText());
-    		ps.setString(3, admUsr.getCrearUsr().getTxtApellidos().getText());
-    		ps.setString(4, admUsr.getCrearUsr().getTxtFechaNac().getText());
-    		ps.setString(5, admUsr.getCrearUsr().getTxtTelf().getText());
-    		ps.setString(6, admUsr.getCrearUsr().getTxtDirec().getText());
-    		ps.setInt(7, Integer.parseInt(admUsr.getCrearUsr().getTxtTipo().getText()));
-    		int rowsAffected = ps.executeUpdate();
-    		
-   		 if (rowsAffected > 0) {
-	             JOptionPane.showMessageDialog(null, "¡Usuario creado correctamente!");
-	         } else {
-	             JOptionPane.showMessageDialog(null, "Error, No se pudo crear el usuario");
-	        }
-   		 admUsr.getCrearUsr().dispose();
-   		cargarUsuarios(admUsr.getMarcoAdm().getAdmUsr());
-   		admUsr.getModelo().fireTableDataChanged();
-    	}catch(Exception e) {
-    		JOptionPane.showMessageDialog(null, "Error al crear el usuario, contacte un administrador");
-    		System.out.println("Error, No se pudo crear el usuario: "+e.getLocalizedMessage());
-    	}
+        String dni = admUsr.getCrearUsr().getTxtDni().getText();
+        String nombre = admUsr.getCrearUsr().getTxtNombre().getText();
+        String apellidos = admUsr.getCrearUsr().getTxtApellidos().getText();
+        String fecha = admUsr.getCrearUsr().getTxtFechaNac().getText();
+        String telf = admUsr.getCrearUsr().getTxtTelf().getText();
+        String direccion = admUsr.getCrearUsr().getTxtDirec().getText();
+        String tipo = admUsr.getCrearUsr().getTxtTipo().getText();
+
+        if (validarCamposUsuarios(dni, nombre, apellidos, fecha, telf, direccion, tipo)) {
+            try {
+                ps = con.getConexion().prepareStatement(INSERTAR_USR);
+                ps.setString(1, dni);
+                ps.setString(2, nombre);
+                ps.setString(3, apellidos);
+                ps.setString(4, fecha);
+                ps.setString(5, telf);
+                ps.setString(6, direccion);
+                ps.setInt(7, Integer.parseInt(tipo));
+                int rowsAffected = ps.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "¡Usuario creado correctamente!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error, no se pudo crear el usuario");
+                }
+
+                admUsr.getCrearUsr().dispose();
+                cargarUsuarios(admUsr.getMarcoAdm().getAdmUsr());
+                admUsr.getModelo().fireTableDataChanged();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al crear el usuario, contacte un administrador");
+                System.out.println("Error, no se pudo crear el usuario: " + e.getLocalizedMessage());
+            }
+        }
     }
+    	
+    
+    
     
 
 		public Conexion getCon() {

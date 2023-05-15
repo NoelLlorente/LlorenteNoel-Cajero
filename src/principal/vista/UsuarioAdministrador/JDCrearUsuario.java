@@ -1,5 +1,6 @@
 package principal.vista.UsuarioAdministrador;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -22,6 +23,7 @@ public class JDCrearUsuario extends JDialog{
 	private JDMarcoAdmUsuarios marco;
 	public JDCrearUsuario(JDMarcoAdmUsuarios marco) {
 		this.marco = marco;
+		this.setPreferredSize(new Dimension(300,300));
 		crear = new JButton("Crear");
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();

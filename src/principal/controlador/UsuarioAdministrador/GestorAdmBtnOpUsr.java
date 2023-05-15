@@ -8,7 +8,9 @@ import javax.swing.table.DefaultTableModel;
 
 import principal.modelo.DAO.TarjetaDAO;
 import principal.modelo.DAO.UsuarioDAO;
+import principal.vista.Excepciones;
 import principal.vista.Vista;
+import principal.vista.UsuarioAdministrador.JDCrearUsuario;
 
 public class GestorAdmBtnOpUsr implements ActionListener{
 	private int acc;
@@ -19,6 +21,7 @@ public class GestorAdmBtnOpUsr implements ActionListener{
 		this.acc = acc;
 		this.v = v;
 	}
+	
 
 
 	@Override
@@ -31,7 +34,11 @@ public class GestorAdmBtnOpUsr implements ActionListener{
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					usr.crearUsuario(v.getUsrAdmin().getAdmUsr());
+					  if (validarCamposVacios(v.getUsrAdmin().getAdmUsr().getCrearUsr())) {
+	                        usr.crearUsuario(v.getUsrAdmin().getAdmUsr());
+	                    } else {
+	                        JOptionPane.showMessageDialog(null, "Error, hay campos vacíos");
+	                    }
 				}
 				
 			});
@@ -49,4 +56,17 @@ public class GestorAdmBtnOpUsr implements ActionListener{
 	}
 
 	
+	
+	private boolean validarCamposVacios(JDCrearUsuario crearUsuarioDialog) {
+	    String dni = crearUsuarioDialog.getTxtDni().getText();
+	    String nombre = crearUsuarioDialog.getTxtNombre().getText();
+	    String apellidos = crearUsuarioDialog.getTxtApellidos().getText();
+	    String fecha = crearUsuarioDialog.getTxtFechaNac().getText();
+	    String telf = crearUsuarioDialog.getTxtTelf().getText();
+	    String direccion = crearUsuarioDialog.getTxtDirec().getText();
+	    String tipo = crearUsuarioDialog.getTxtTipo().getText();
+
+	    return !dni.isEmpty() && !nombre.isEmpty() && !apellidos.isEmpty() &&
+	            !fecha.isEmpty() && !telf.isEmpty() && !direccion.isEmpty() && !tipo.isEmpty();
+	}
 }
