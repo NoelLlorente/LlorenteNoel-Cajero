@@ -14,9 +14,12 @@ import javax.swing.JPanel;
 public class MarcoUsuarioAdministrador extends JPanel{
 	private JButton[] btn_marcoAdm;
 	private JDMarcoAdmUsuarios admUsr;
-	
+	private JDMarcoAdmTarjetas admTarjetas;
+	private JDMarcoAdmCajero admCajero;
 	public MarcoUsuarioAdministrador() {
 		admUsr = new JDMarcoAdmUsuarios(this);
+		admTarjetas = new JDMarcoAdmTarjetas(this);
+		admCajero = new JDMarcoAdmCajero(this);
 		JLabel texto = new JLabel("Panel Administrador");
 		Font font = new Font(texto.getFont().getName(), Font.PLAIN, 30);
 		texto.setFont(font);
@@ -55,9 +58,27 @@ public class MarcoUsuarioAdministrador extends JPanel{
 	public void setAdmUsr(JDMarcoAdmUsuarios admUsr) {
 		this.admUsr = admUsr;
 	}
+
+	public JDMarcoAdmTarjetas getAdmTarjetas() {
+		return admTarjetas;
+	}
+
+	public void setAdmTarjetas(JDMarcoAdmTarjetas admTarjetas) {
+		this.admTarjetas = admTarjetas;
+	}
+
+	public JDMarcoAdmCajero getAdmCajero() {
+		return admCajero;
+	}
+
+	public void setAdmCajero(JDMarcoAdmCajero admCajero) {
+		this.admCajero = admCajero;
+	}
+	
 	
 
 
+	
 	
 	
 }

@@ -9,8 +9,10 @@ import javax.swing.JOptionPane;
 import principal.modelo.Conexion;
 import principal.modelo.Consultas;
 import principal.modelo.DTO.CajeroDTO;
+import principal.vista.Excepciones;
+import principal.vista.UsuarioAdministrador.JDMarcoAdmCajero;
 
-public class CajeroDAO implements Consultas{
+public class CajeroDAO implements Consultas, Excepciones{
 	CajeroDTO cajero = null;
     private PreparedStatement ps = null;
     private Statement sta = null;
@@ -59,5 +61,41 @@ public class CajeroDAO implements Consultas{
     		System.out.println("Error al actualizar saldo del cajero: "+e.getLocalizedMessage());
     	}
     	
+    }
+    
+    
+    public void cargarCajero(JDMarcoAdmCajero marco) {
+    	try {
+    		sta = con.getConexion().createStatement();
+        	resultSet = sta.executeQuery(SALDO_CAJERO);
+        	
+        	if(resultSet.next()) {
+        		marco.getSaldo().setText(resultSet.getString("saldo"));
+        	}
+    	}catch(Exception e) {
+    		JOptionPane.showMessageDialog(null, "Error al cargar saldo del cajero, contactar con un administrador");
+    		System.out.println("Error al cargar saldo del cajero:"+e.getLocalizedMessage());
+    	}
+    	
+    }
+    
+    
+    public void actualizarSaldoCajero(JDMarcoAdmCajero marco) {
+    	if(validarSaldoCajero(marco.getSaldo().getText())) {
+    	try {
+    		this.ps = con.getConexion().prepareStatement(ACTUALIZAR_SALDO_CAJERO);
+    		ps.setString(1, marco.getSaldo().getText());
+    		int rowsAffected = ps.executeUpdate();
+    		
+   		 if (rowsAffected > 0) {
+	             JOptionPane.showMessageDialog(null, "Saldo actualizado correctamente");
+	         } else {
+	        	 JOptionPane.showMessageDialog(null, "No se pudo actualizar el saldo");
+	         }
+   		cargarCajero(marco);
+    	}catch(Exception e) {
+    		System.out.println("Error al actualizar saldo del cajero: "+e.getLocalizedMessage());
+    	}
+    	}
     }
 }

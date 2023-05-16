@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
+import principal.vista.UsuarioAdministrador.JDCrearTarjeta;
 import principal.vista.UsuarioAdministrador.JDCrearUsuario;
 
 public interface Excepciones {
@@ -106,5 +107,94 @@ public interface Excepciones {
 	            !fecha.isEmpty() && !telf.isEmpty() && !direccion.isEmpty() && !tipo.isEmpty();
 	}
 	
+	public default boolean validarCamposVaciosTarjeta(JDCrearTarjeta crearTarjeta) {
+	    String id = crearTarjeta.getTxtid().getText();
+	    String pin = crearTarjeta.getTxtpin().getText();
+	    String cvv = crearTarjeta.getTxtcvv().getText();
+	    String fecha = crearTarjeta.getTxtfechaCad().getText();
+	    String dni = crearTarjeta.getTxtdni_usr().getText();
+	  
+
+	    return !id.isEmpty() && !pin.isEmpty() && !cvv.isEmpty() &&
+	            !fecha.isEmpty() && !dni.isEmpty();
+	}
+	
+	
+	
+	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr) {
+		
+		 if(id.length()<6||id.length()>17 ||id.isEmpty()) {
+		    	JOptionPane.showMessageDialog(null, "Error, el id no cumple con la longitud del sistema, o esta vacio");
+		    	return false;
+		    }
+		if (!id.matches("[0-9]+")) {
+		        JOptionPane.showMessageDialog(null, "Error, el numero de cuenta (ID) es inválido");
+		        return false;
+		    }
+		    
+		if(pin.length()<3 || pin.length()>6) {
+				JOptionPane.showMessageDialog(null, "El pin no puede ser inferior a 3 caracteres o mayor a 6 caracteres");
+				return false;
+			}
+	    
+		if(!pin.matches("[0-9]+")) {
+					JOptionPane.showMessageDialog(null, "El pin es invalido, solo puede contener numeros");
+					return false;
+				}
+		
+
+		 if(cvv.length()<3||cvv.length()>3||cvv.isEmpty()) {
+			   JOptionPane.showMessageDialog(null, "Error, el cvv no cumple con la longitud del sistema, o esta vacio");
+			   return false;
+		   }
+		   
+		   if(!cvv.matches("[0-9]+")) {
+			   JOptionPane.showMessageDialog(null, "Error, el cvv es invalido");
+			   return false;
+		   }
+		   
+
+	    if (fecha.length() != 10 || (!fecha.matches("\\d{4}/\\d{2}/\\d{2}") && !fecha.matches("\\d{4}-\\d{2}-\\d{2}"))) {
+	        JOptionPane.showMessageDialog(null, "Error, la fecha es inválida o no cumple con el formato yyyy/mm/dd");
+	        return false;
+	    }
+
+	   
+	   if (dni.length() < 8 || dni.length() > 9) {
+	        JOptionPane.showMessageDialog(null, "El DNI introducido no cumple con las longitudes del sistema o está vacío");
+	        return false;
+	    }
+
+	    if (!dni.matches("[a-zA-Z0-9]+")) {
+	        JOptionPane.showMessageDialog(null, "Error, el DNI no puede contener caracteres especiales");
+	        return false;
+	    }
+	    
+	  if(!validadoUsr) {
+		  JOptionPane.showMessageDialog(null, "Error, ese dni no existe");
+		  return false;
+	  }
+	   
+	return true;
+	}
+	
+	
+	public default boolean validarSaldoCajero(String saldo) {
+		   try {
+		        double tipoNumero = Double.parseDouble(saldo);
+		        if (tipoNumero==0) {
+		            JOptionPane.showMessageDialog(null, "Error, el saldo no puede estar vacio");
+		            return false;
+		        }
+		        if (tipoNumero>10000) {
+		            JOptionPane.showMessageDialog(null, "Error, el cajero solo soporta 10.000€");
+		            return false;
+		        }
+		    } catch (NumberFormatException e) {
+		        JOptionPane.showMessageDialog(null, "Error, el tipo de usuario debe ser un número");
+		        return false;
+		    }
+		   return true;
+	}
 	
 }

@@ -6,8 +6,12 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import principal.controlador.GestorLogin;
+import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpUsr;
+import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarUsr;
+import principal.controlador.UsuarioAdministrador.GestorBtnAdmActSaldo;
+import principal.controlador.UsuarioAdministrador.GestorBtnCrearTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorBtnCrearUsr;
 import principal.controlador.UsuarioAdministrador.GestorBtnMarcoAdmin;
 import principal.controlador.UsuarioCorriente.GestorBotoneraOpUsr;
@@ -82,6 +86,16 @@ public class Vista extends JFrame{
 		}
 		
 		usrAdmin.getAdmUsr().getCrearUsr().getCrear().addActionListener(new GestorBtnCrearUsr(this));	
+		
+		usrAdmin.getAdmTarjetas().getBuscar().addActionListener(new GestorAdmFiltrarTarjeta(this));
+		
+		for(int i=0; i<usrAdmin.getAdmTarjetas().getBtn().length; i++) {
+			usrAdmin.getAdmTarjetas().getBtn()[i].addActionListener(new GestorAdmBtnOpTarjeta(i, this));
+		}
+		
+		usrAdmin.getAdmTarjetas().getCrearTarjeta().getCrear().addActionListener(new GestorBtnCrearTarjeta(this));
+		
+		usrAdmin.getAdmCajero().getActualizar().addActionListener(new GestorBtnAdmActSaldo(this));
 	}
 	
 	

@@ -26,5 +26,13 @@ public interface Consultas {
 	public static final String MODIFICAR_USR = "update usuario set nombre=?, apellidos=?, fecha_nac=?, telefono=?, direccion=?, tipo_usuario=? where dni=?";
 	public static final String ELIMINAR_USR = "delete from usuario where dni=?";
 	public static final String INSERTAR_USR = "insert into usuario values(?,?,?,?,?,?,?)";
-	
+	public static final String LISTAR_TARJETAS= "select * from tarjeta";
+	public static final String FILTRAR_TARJETA_ID= "select * from tarjeta where id=";
+	public static final String FILTRAR_TARJETA_CVV= "select * from tarjeta where cvv=";
+	public static final String FILTRAR_TARJETA_FECHA= "select * from tarjeta where fecha_caducidad=";
+	public static final String FILTRAR_TARJETA_DNI= "select * from tarjeta where dni_usuario=";
+	public static final String MODIFICAR_TARJETA = "update tarjeta set pin=hex(aes_encrypt(?, 'admin')), cvv=?, fecha_caducidad=?, dni_usuario=? where id=?";
+	public static final String ELIMINAR_TARJETA = "delete from tarjeta where id=?";
+	public static final String INSERTAR_TARJETA = "insert into tarjeta values(?,hex(aes_encrypt(?,'admin')),?,?,?)";
+	public static final String SALDO_CAJERO = "select saldo from cajero where id=1";
 }
