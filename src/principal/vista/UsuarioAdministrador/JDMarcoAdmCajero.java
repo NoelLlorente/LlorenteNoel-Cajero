@@ -20,6 +20,7 @@ public class JDMarcoAdmCajero extends JDialog{
 	private MarcoUsuarioAdministrador marcoAdm;
 	
 	public JDMarcoAdmCajero(MarcoUsuarioAdministrador marcoAdm) {
+		this.setTitle("Administración Cajero");
 		this.marcoAdm=marcoAdm;
 		this.setPreferredSize(new Dimension(300,250));
 		JPanel p = new JPanel();

@@ -17,7 +17,6 @@ public class JDHistorialMov extends JDialog {
     private MarcoOpUsrCorriente marco;
     public JDHistorialMov(MarcoOpUsrCorriente marco) {
     	this.marco = marco;
-    
         this.setTitle("Historial de movimientos");
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);

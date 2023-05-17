@@ -25,7 +25,7 @@ public class JDRetirarSaldo extends JDialog{
 		saldo = new JTextField();
 		saldo.setPreferredSize(new Dimension(130,25));
 		btn = new JButton("Retirar");
-		JLabel jl = new JLabel("Introduzca la cantidad a ingresar: ");
+		JLabel jl = new JLabel("Introduzca la cantidad a retirar: ");
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
 		p1.add(jl);

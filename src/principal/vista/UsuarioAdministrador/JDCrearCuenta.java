@@ -26,6 +26,7 @@ public class JDCrearCuenta extends JDialog{
 	
 	public JDCrearCuenta(JDMarcoAdmCuentas marco) {
 		this.marco = marco;
+		this.setTitle("Crear Cuenta");
 		this.setPreferredSize(new Dimension(300,300));
 		crear = new JButton("Crear");
 		JPanel jp1 = new JPanel();
@@ -38,7 +39,7 @@ public class JDCrearCuenta extends JDialog{
 		
 		jp2.add(crear);
 		jp2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		jp1.setBorder(new TitledBorder("Datos de la Tarjeta"));
+		jp1.setBorder(new TitledBorder("Datos de la Cuenta"));
 		JLabel jlID = new JLabel("Id");
 		JLabel jlnombre = new JLabel("Nombre");
 		JLabel jlsaldo = new JLabel("Saldo");

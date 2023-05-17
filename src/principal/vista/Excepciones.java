@@ -264,10 +264,7 @@ public interface Excepciones {
 		            JOptionPane.showMessageDialog(null, "Error, el saldo no puede estar vacio");
 		            return false;
 		        }
-		        if (tipoNumero>10000) {
-		            JOptionPane.showMessageDialog(null, "Error, el cajero solo soporta 10.000€");
-		            return false;
-		        }
+		      
 		    } catch (NumberFormatException e) {
 		        JOptionPane.showMessageDialog(null, "Error, el tipo de usuario debe ser un número");
 		        return false;

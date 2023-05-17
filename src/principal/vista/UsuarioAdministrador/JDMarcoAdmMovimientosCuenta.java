@@ -28,7 +28,7 @@ public class JDMarcoAdmMovimientosCuenta extends JDialog{
 
 	
 	public JDMarcoAdmMovimientosCuenta(JDMarcoAdmCuentas marcoAdm) {
-		this.setTitle("Gestion Cuentas");
+		this.setTitle("Gestion Historial Movimientos");
 		this.marcoAdm = marcoAdm;
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();

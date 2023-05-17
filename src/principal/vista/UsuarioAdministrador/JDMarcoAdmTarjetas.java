@@ -28,7 +28,7 @@ public class JDMarcoAdmTarjetas extends JDialog{
 
 	
 	public JDMarcoAdmTarjetas(MarcoUsuarioAdministrador marcoAdm) {
-		this.setTitle("Gestion Usuarios");
+		this.setTitle("Gestion Tarjetas");
 		crearTarjeta=new JDCrearTarjeta(this);
 		this.marcoAdm = marcoAdm;
 		JPanel jp1 = new JPanel();

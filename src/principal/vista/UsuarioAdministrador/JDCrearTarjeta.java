@@ -26,6 +26,7 @@ public class JDCrearTarjeta extends JDialog{
 	private JDMarcoAdmTarjetas marco;
 	
 	public JDCrearTarjeta(JDMarcoAdmTarjetas marco) {
+		this.setTitle("Crear Tarjeta");
 		this.marco = marco;
 		this.setPreferredSize(new Dimension(300,300));
 		crear = new JButton("Crear");

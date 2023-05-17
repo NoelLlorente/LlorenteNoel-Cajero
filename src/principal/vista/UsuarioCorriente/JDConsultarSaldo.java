@@ -20,6 +20,7 @@ public class JDConsultarSaldo extends JDialog{
 	private MarcoOpUsrCorriente marco;
 	
 	public JDConsultarSaldo(MarcoOpUsrCorriente marco) {
+		this.setTitle("Consultar Saldo");
 		this.setPreferredSize(new Dimension(200,200));
 		this.marco = marco;
 		saldoDisp = new JTextField();

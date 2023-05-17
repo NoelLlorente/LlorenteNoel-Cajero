@@ -26,6 +26,7 @@ public class JDCrearUsuario extends JDialog{
 	private JButton crear;
 	private JDMarcoAdmUsuarios marco;
 	public JDCrearUsuario(JDMarcoAdmUsuarios marco) {
+		this.setTitle("Crear Usuario");
 		this.marco = marco;
 		this.setPreferredSize(new Dimension(300,300));
 		crear = new JButton("Crear");
