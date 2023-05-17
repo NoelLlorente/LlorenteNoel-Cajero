@@ -15,7 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
-
+/**
+ * Es el primer marco donde se pedirán al usuario los datos para hacer login
+ * @author Noel
+ *
+ */
 public class MarcoLogin extends JPanel{
 	private JLabel dni;
 	private JLabel pin;

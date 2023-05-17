@@ -9,7 +9,11 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
-
+/** 
+ * JDialog donde se mostrará el saldo disponible en la cuenta
+ * @author Noel
+ *
+ */
 public class JDConsultarSaldo extends JDialog{
 	private JTextField saldoDisp;
 	private JButton salir;

@@ -1,5 +1,10 @@
 package principal.modelo.DTO;
 
+/**
+ * UsuarioDTO es una clase abstracta de la cual heredan usuarioCorriente y usuarioAdministrador, en ella se declaran los atributos de los usuarios
+ * @author Noel
+ *
+ */
 public abstract class UsuarioDTO {
 	private String dni;
 	private String nombre;

@@ -9,7 +9,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Es el JDialog donde se introducirá la cantidad de saldo a ingresar en la cuenta
+ * @author Noel
+ *
+ */
 public class JDIngresarSaldo extends JDialog{
 	private JTextField saldo;
 	private JButton btn;

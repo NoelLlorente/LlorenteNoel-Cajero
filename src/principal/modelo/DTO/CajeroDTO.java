@@ -1,5 +1,9 @@
 package principal.modelo.DTO;
-
+/**
+ * Clase CajeroDTO en la cual se declarán los atributos del cajero
+ * @author Noel
+ *
+ */
 public class CajeroDTO {
 	private int num_cajero;
 	private double saldo;

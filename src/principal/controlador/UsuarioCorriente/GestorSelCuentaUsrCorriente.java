@@ -12,16 +12,38 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * @author Noel
+ *Controlador del Marco de selección de cuenta
+ */
 public class GestorSelCuentaUsrCorriente implements ActionListener{
 	private Vista vista;
 
-
+/**
+ * 
+ * @param vista es el JFrame
+ * Se crea el constructor
+ */
 	public GestorSelCuentaUsrCorriente(Vista vista) {
 		this.vista = vista;
 	}
 
+	/**
+	 * Se crea el actionPerformed
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		/**
+		 * Se oculta el panel de Usuarios Corrientes donde se muestra los datos de la tarjeta
+		 * Se crea un objeto UsuarioDAO para obtener los usuario y rellenar un array con los datos de la tarjeta 
+		 * Si el array de tarjetas no esta vacio entonces se rellena un array de cuentas con las cuentas que tiene ese array
+		 * Si el array de cuentas esta vacio se muestra un mensaje 
+		 * Si el array de cuentas no esta vacio se llena el JList con los datos
+		 * @see principal.modelo.DTO.TarjetaDTO
+		 * @see principal.modelo.DTO.CuentaDTO
+		 * @see principal.modelo.DAO.UsuarioDAO
+		 */
 		vista.getUsrCorriente().setVisible(false);
 		String dni = vista.getMarcologin().getDnitxf().getText();
 		vista.getContentPane().add(vista.getSelCuenta());

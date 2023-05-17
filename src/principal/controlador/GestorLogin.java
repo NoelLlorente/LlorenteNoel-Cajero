@@ -18,16 +18,34 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * Controlador del login, es donde se le añade funcionalidad al boton inciar sesión
+ * @author Noel
+ *
+ */
+
 public class GestorLogin implements ActionListener, Excepciones{
 	private MarcoUsuarioCorriente usrCorriente;
 	private MarcoLogin Marcologin;
 	private Vista vista;
 	
+	/**
+	 * 
+	 *@param usrCorriente es el marco de los usuarios corrientes
+	 *@param Marcologin es el marco del Login donde se mostrarán los JTextField y el Botón 
+	 *@param vista es el JFrame donde se llamarán todos los componentes
+	 *
+	 * 
+	 * Se crea el constructor
+	 */
 	public GestorLogin(MarcoLogin marcologin, Vista vista, MarcoUsuarioCorriente usrCorriente) {
 		this.Marcologin = marcologin;
 		this.vista = vista;
 		this.usrCorriente = usrCorriente;
 		
+		/**
+		 * Se le añade funcionalidad a la tecla ENTER del teclado, para que cada vez que se presione nos permita hacer el login
+		 */
 		 Marcologin.getPintxf().addKeyListener(new KeyAdapter() {
 	            public void keyPressed(KeyEvent e) {
 	                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -48,11 +66,22 @@ public class GestorLogin implements ActionListener, Excepciones{
 
 
 
+	
+	/**
+	 * Se declará el actionPerformed donde se le dará la funcionalidad al botón
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		/**
+		 * Se llama el método iniciarSesion()
+		 * @see #iniciarSesion
+		 */
 		iniciarSesion();	
 }
 	
+	/**
+	 * Método iniciar sesión donde se validaran los campos y según el tipo de usuario se hará una cosa u otra
+	 */
 	public void iniciarSesion() {
 		
 		
@@ -62,12 +91,20 @@ public class GestorLogin implements ActionListener, Excepciones{
 		UsuarioDAO userDAO = new UsuarioDAO();
 		int tipo_usr = userDAO.devolverTipoUsuario(dni);
 		
+		/**
+		 * Se valida que los campos del login no esten vacios y que los datos sean correctos
+		 * @see principal.vista.Excepciones
+		 * @see principal.vista.Excepciones#loginVacio
+		 * @see principal.modelo.DAO.UsuarioDAO#validarUsuario
+		 */
 	if(!loginVacio(dni, passwd)) {
 		if(userDAO.validarUsuario(dni, passwd)) {
 			JOptionPane.showMessageDialog(null, "Inicio de sesión correcto");
 			
 			
-	
+	/**
+	 * Se verifica el tipo de usuario que es: 1-Usuario Corriente, 2-Usuario Administrador
+	 */
 			if(tipo_usr==1) {
 				userDAO = new UsuarioDAO(dni);
 				vista.getContentPane().add(usrCorriente);

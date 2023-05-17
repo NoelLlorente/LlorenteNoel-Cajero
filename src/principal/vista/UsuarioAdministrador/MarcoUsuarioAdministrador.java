@@ -10,16 +10,22 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * Es el marco donde se mostrarán las 4 opciones de administración sobre cuentas, usuarios, tarjeta y cuentas
+ * @author Noel
+ *
+ */
 public class MarcoUsuarioAdministrador extends JPanel{
 	private JButton[] btn_marcoAdm;
 	private JDMarcoAdmUsuarios admUsr;
 	private JDMarcoAdmTarjetas admTarjetas;
 	private JDMarcoAdmCajero admCajero;
+	private JDMarcoAdmCuentas admCuentas;
 	public MarcoUsuarioAdministrador() {
 		admUsr = new JDMarcoAdmUsuarios(this);
 		admTarjetas = new JDMarcoAdmTarjetas(this);
 		admCajero = new JDMarcoAdmCajero(this);
+		admCuentas=new JDMarcoAdmCuentas(this);
 		JLabel texto = new JLabel("Panel Administrador");
 		Font font = new Font(texto.getFont().getName(), Font.PLAIN, 30);
 		texto.setFont(font);
@@ -74,6 +80,15 @@ public class MarcoUsuarioAdministrador extends JPanel{
 	public void setAdmCajero(JDMarcoAdmCajero admCajero) {
 		this.admCajero = admCajero;
 	}
+
+	public JDMarcoAdmCuentas getAdmCuentas() {
+		return admCuentas;
+	}
+
+	public void setAdmCuentas(JDMarcoAdmCuentas admCuentas) {
+		this.admCuentas = admCuentas;
+	}
+
 	
 	
 

@@ -5,10 +5,23 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
+import principal.vista.UsuarioAdministrador.JDCrearCuenta;
 import principal.vista.UsuarioAdministrador.JDCrearTarjeta;
 import principal.vista.UsuarioAdministrador.JDCrearUsuario;
 
+/**
+ * Interfaz en la cuál se crean métodos para válidar los datos de la aplicación
+ * @author Noel
+ *
+ */
 public interface Excepciones {
+	
+	/**
+	 * Validar que el login no esté vacio
+	 * @param usr es el dni de usuario
+	 * @param passwd es el pin de la tarjeta
+	 * @return true o false
+	 */
 	public default boolean loginVacio(String usr, String passwd) {
 		if(usr.isEmpty()||passwd.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "¡Verifique que los campos no estén vacios!");
@@ -17,6 +30,11 @@ public interface Excepciones {
 		return false;
 	}
 	
+	/**
+	 * Validar que la longitud del nuevo pin es válida
+	 * @param pin es el nuevo pin
+	 * @return true o false
+	 */
 	public default boolean longitudNewPin(String pin) {
 		if(pin.length()<3 || pin.length()>6) {
 			JOptionPane.showMessageDialog(null, "El pin no puede ser inferior a 3 caracteres o mayor a 6 caracteres");
@@ -24,6 +42,12 @@ public interface Excepciones {
 		}
 		return false;
 	}
+	
+	/**
+	 * Valida que el saldo se un número y que no este vacio
+	 * @param saldo es el saldo
+	 * @return true o false
+	 */
 
 	public default boolean validarSaldo(double saldo) {
 		if(saldo<=0) {
@@ -33,7 +57,11 @@ public interface Excepciones {
 		return false;
 	}
 	
-	
+	/**
+	 * Valida que el saldo en tipo String no este vacio
+	 * @param saldo es el saldo
+	 * @return true o false
+	 */
 	public default boolean validarStringSaldo(String saldo) {
 		if(saldo.isEmpty()) {
 			JOptionPane.showMessageDialog(null,"Error, rellene los campos");
@@ -42,7 +70,17 @@ public interface Excepciones {
 		return false;
 	}
 	
-	
+	/**
+	 * Validar los campos para crear o modificar usuarios
+	 * @param dni es el dni del usuario
+	 * @param nombre es el nombre
+	 * @param apellidos los apellidos
+	 * @param fecha la fecha de nacimientos
+	 * @param telf el teléfono
+	 * @param direccion la dirección
+	 * @param tipo el tipo de usuario, usuario corriente o administrador
+	 * @return true o false
+	 */
 	public default boolean validarCamposUsuarios(String dni, String nombre, String apellidos, String fecha, String telf, String direccion, String tipo) {
 		if (dni.length() < 8 || dni.length() > 9) {
 	        JOptionPane.showMessageDialog(null, "El DNI introducido no cumple con las longitudes del sistema o está vacío");
@@ -93,7 +131,11 @@ public interface Excepciones {
 	return true;
 	}
 	
-	
+	/**
+	 * Validar campos vacios a la hora de crear o modificar usuarios
+	 * @param crearUsuarioDialog es el JDialog JDCrearUsuario
+	 * @return true o false
+	 */
 	public default boolean validarCamposVacios(JDCrearUsuario crearUsuarioDialog) {
 	    String dni = crearUsuarioDialog.getTxtDni().getText();
 	    String nombre = crearUsuarioDialog.getTxtNombre().getText();
@@ -107,6 +149,11 @@ public interface Excepciones {
 	            !fecha.isEmpty() && !telf.isEmpty() && !direccion.isEmpty() && !tipo.isEmpty();
 	}
 	
+	/**
+	 * Validar que no haya campos vacios a la hora de crear o modificar tarjetas
+	 * @param crearTarjeta es el JDialog JDCrearTarjeta
+	 * @return true o false
+	 */
 	public default boolean validarCamposVaciosTarjeta(JDCrearTarjeta crearTarjeta) {
 	    String id = crearTarjeta.getTxtid().getText();
 	    String pin = crearTarjeta.getTxtpin().getText();
@@ -120,7 +167,34 @@ public interface Excepciones {
 	}
 	
 	
+/**
+ * Validar que no haya campos vacios a la hora de crear cuentas o modificarlas
+ * @param crearCuenta es el JDialog JDCrearCuenta
+ * @return true o false
+ */
+	public default boolean validarCamposVaciosCuenta(JDCrearCuenta crearCuenta) {
+	    String id = crearCuenta.getTxtid().getText();
+	    String nombre = crearCuenta.getTxtnombre().getText();
+	    String saldo = crearCuenta.getTxtsaldo().getText();
+	    String id_tarjeta = crearCuenta.getTxtid_tarjeta().getText();
+	    
+	  
+
+	    return !id.isEmpty() && !nombre.isEmpty() && !saldo.isEmpty() &&
+	            !id_tarjeta.isEmpty(); 
+	}
 	
+	
+	/**
+	 * Validar campos a la hora de crear o modificar tarjetas
+	 * @param id numero de tarjeta
+	 * @param pin es el pin o el password
+	 * @param cvv es el código de verificación de datos de la tarjeta
+	 * @param fecha fecha de caducidad
+	 * @param dni es el dni del usuario propietario
+	 * @param validadoUsr es un booleano que devuelve true si el dni del usuario existe
+	 * @return true o false
+	 */
 	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr) {
 		
 		 if(id.length()<6||id.length()>17 ||id.isEmpty()) {
@@ -128,7 +202,7 @@ public interface Excepciones {
 		    	return false;
 		    }
 		if (!id.matches("[0-9]+")) {
-		        JOptionPane.showMessageDialog(null, "Error, el numero de cuenta (ID) es inválido");
+		        JOptionPane.showMessageDialog(null, "Error, el numero de tarjeta (ID) es inválido");
 		        return false;
 		    }
 		    
@@ -178,7 +252,11 @@ public interface Excepciones {
 	return true;
 	}
 	
-	
+	/**
+	 * Validar el saldo del cajero
+	 * @param saldo es el nuevo saldo
+	 * @return true o false
+	 */
 	public default boolean validarSaldoCajero(String saldo) {
 		   try {
 		        double tipoNumero = Double.parseDouble(saldo);
@@ -195,6 +273,53 @@ public interface Excepciones {
 		        return false;
 		    }
 		   return true;
+	}
+	
+	
+	/**
+	 * Validar los campos a la hora de crear o modificar cuentas
+	 * @param id es el número de cuenta
+	 * @param nombre es el nombre de la cuenta
+	 * @param saldo es el saldo disponible
+	 * @param id_tarjeta es el número de la tarjeta propietaria
+	 * @param validadoIdTarjeta es un booleano que devuelve true si la tarjeta existe
+	 * @return true o false
+	 */
+	public default boolean validarCamposCuenta(String id, String nombre, String saldo, String id_tarjeta, boolean validadoIdTarjeta) {
+		
+		 if(id.length()<7||id.length()>21 ||id.isEmpty()) {
+		    	JOptionPane.showMessageDialog(null, "Error, el id no cumple con la longitud del sistema, o esta vacio");
+		    	return false;
+		    }
+		 
+		if (!id.matches("[0-9]+")) {
+		        JOptionPane.showMessageDialog(null, "Error, el numero de cuenta (ID) es inválido");
+		        return false;
+		    }
+		
+		
+		if (nombre.isEmpty() || !nombre.matches("[a-zA-Z\\s]+")) {
+	        JOptionPane.showMessageDialog(null, "Error, el nombre no puede estar vacío y solo puede contener letras");
+	        return false;
+	    }		 
+		
+		 try {
+		        double tipoNumero = Double.parseDouble(saldo);
+		        if (tipoNumero==0) {
+		            JOptionPane.showMessageDialog(null, "Error, el saldo no puede estar vacio");
+		            return false;
+		        }
+		    } catch (NumberFormatException e) {
+		        JOptionPane.showMessageDialog(null, "Error, el saldo debe ser un número");
+		        return false;
+		    }
+	
+	  if(!validadoIdTarjeta) {
+		  JOptionPane.showMessageDialog(null, "Error, ese ID Tarjeta no existe");
+		  return false;
+	  }
+	   
+	return true;
 	}
 	
 }

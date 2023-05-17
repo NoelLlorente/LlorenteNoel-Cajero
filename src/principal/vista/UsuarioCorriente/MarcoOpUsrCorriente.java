@@ -10,7 +10,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * Es el marco donde se mostrará al usuario la operaciones que puede realizar ingresar, retirar, consultar, movimientos
+ * @author Noel
+ *
+ */
 public class MarcoOpUsrCorriente extends JPanel{
 	private JButton[] botones;
 	private JButton salir;

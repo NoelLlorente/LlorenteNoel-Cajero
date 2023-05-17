@@ -1,5 +1,10 @@
 package principal.modelo.DTO;
 
+/**
+ * 
+ * @author Noel
+ *Clase UsuarioCorriente que hereda de UsuarioDTO
+ */
 public class UsuarioCorriente extends UsuarioDTO{
 	
 	public UsuarioCorriente(String dni, String nombre, String apellidos, String fecha_nacimiento, String telefono, String direccion, TarjetaDTO tarjeta) {

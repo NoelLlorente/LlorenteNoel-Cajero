@@ -15,16 +15,39 @@ import principal.modelo.DTO.UsuarioDTO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 
+/**
+ * 
+ * @author Noel
+ *Controlador del botón retira saldo
+ */
 public class GestorRetirarSaldo implements ActionListener, Excepciones{
 	private Vista v;
 
+	/**
+	 * 
+	 * @param v es el JFrame
+	 * Se crea el constructor
+	 */
 	public GestorRetirarSaldo(Vista v) {
 		this.v = v;
 	}
 
+	/**
+	 * Se crea el actionPerformed donde se añadirá funcionalidad al botón
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int indice = v.getSelCuenta().getListaCuentas().getSelectedIndex();
+		
+		/**
+		 * Se crea un objeto CuentaDTO para rellenarlo con las cuentas que se obtienen del objeto UsuarioDAO, y se rellena un array de CuentaDTO
+		 * Se valida el saldo
+		 * Se crea un objeto CuentaDAO para llamar al método retirar saldo
+		 * @see principal.vista.Excepciones#validarStringSaldo
+		 * @see principal.modelo.DAO.UsuarioDAO
+		 * @see principal.modelo.DAO.CuentaDAO
+		 * @see principal.modelo.DTO.CuentaDTO
+		 */
 		 CuentaDTO cuentaSel = null;
 	        if (indice != -1) {
 	            UsuarioDAO cuenta = new UsuarioDAO(v.getMarcologin().getDnitxf().getText());

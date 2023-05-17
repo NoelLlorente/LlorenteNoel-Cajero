@@ -9,7 +9,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Es el JDialog donde introduciremos los datos del nuevo pin
+ * @author Noel
+ *
+ */
 public class JDCambiarPin extends JDialog{
 	private JTextField new_pin;
 	private JButton btn;

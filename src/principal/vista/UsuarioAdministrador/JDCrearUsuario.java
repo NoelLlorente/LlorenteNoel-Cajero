@@ -1,6 +1,7 @@
 package principal.vista.UsuarioAdministrador;
 
 import java.awt.Dimension;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -11,6 +12,9 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+/**
+ *Es el JDialog donde se introducirán los datos para crear los usuarios
+ */
 public class JDCrearUsuario extends JDialog{
 	private JTextField txtDni;
 	private JTextField txtNombre;

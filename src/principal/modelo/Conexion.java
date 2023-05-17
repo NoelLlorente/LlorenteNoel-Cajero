@@ -6,7 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * 
+ * @author Noel
+ *Clase Conexion será la encargada de establece la conexión con la base de datos
+ */
 public class Conexion {
+	
 	final private String driver = "com.mysql.cj.jdbc.Driver";
 	final private String host = "localhost";
 	final private String user = "root";
@@ -15,7 +21,9 @@ public class Conexion {
 	private Connection conexion;
 	private Statement statement;
 	
-
+	/**
+	 * Se crea la conexion
+	 */
 	public Conexion() {
 		try {
 			//Cargamos el driver
@@ -32,6 +40,10 @@ public class Conexion {
 		}
 	}
 	
+	/**
+	 * 
+	 * Se cierra la conexión
+	 */
 	public void cerrarConexion(Connection conexion, Statement statement, ResultSet resultset) {
 		try {
 			if(conexion!=null) {
@@ -64,7 +76,9 @@ public class Conexion {
 	    }
 	}
 	
-	
+	/*
+	 * Getter and Setters
+	 */
 	public  Connection getConexion() {
 		return conexion;
 	}

@@ -9,7 +9,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Es el JDialog donde se introducirá la cantidad de saldo a retirar de la cuenta
+ * @author Noel
+ *
+ */
 public class JDRetirarSaldo extends JDialog{
 	private JTextField saldo;
 	private JButton btn;

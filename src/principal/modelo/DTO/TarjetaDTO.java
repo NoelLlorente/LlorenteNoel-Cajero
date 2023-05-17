@@ -2,6 +2,11 @@ package principal.modelo.DTO;
 
 import java.util.ArrayList;
 
+/**
+ * Clase TarjetaDTO en la cual se declarán los atributos de las tarjetas
+ * @author Noel
+ *
+ */
 public class TarjetaDTO {
 	private String num_tarjeta;
 	private String pin;

@@ -9,6 +9,11 @@ import javax.swing.JDialog;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.JPanel;
+/**
+ * Es el JDialog donde se podrá modificar el saldo del cajero
+ * @author Noel
+ *
+ */
 public class JDMarcoAdmCajero extends JDialog{
 	private JTextField saldo;
 	private JButton actualizar;

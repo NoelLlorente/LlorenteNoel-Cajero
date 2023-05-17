@@ -13,7 +13,11 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-
+/**
+ * Es el marco donde pide al usuario que seleccione una cuenta de las que se mostrarán
+ * @author Noel
+ *
+ */
 public class MarcoSelCuenta extends JPanel {
     private JList<String> listaCuentas;
     private JButton[] botones;

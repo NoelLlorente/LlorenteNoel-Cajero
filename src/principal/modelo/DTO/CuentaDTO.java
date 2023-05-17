@@ -1,7 +1,11 @@
 package principal.modelo.DTO;
 
 import java.util.ArrayList;
-
+/**
+ * Clase CuentaDTO en la cual se declarán los atributos de las cuentas
+ * @author Noel
+ *
+ */
 public class CuentaDTO {
 	private String num_cuenta;
 	private String nombre;

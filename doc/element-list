@@ -1,0 +1,10 @@
+principal
+principal.controlador
+principal.controlador.UsuarioAdministrador
+principal.controlador.UsuarioCorriente
+principal.modelo
+principal.modelo.DAO
+principal.modelo.DTO
+principal.vista
+principal.vista.UsuarioAdministrador
+principal.vista.UsuarioCorriente

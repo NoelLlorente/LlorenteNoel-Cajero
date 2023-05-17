@@ -6,11 +6,16 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import principal.controlador.GestorLogin;
+import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpHistorial;
 import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpUsr;
+import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarCuenta;
+import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarHistorial;
 import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarUsr;
 import principal.controlador.UsuarioAdministrador.GestorBtnAdmActSaldo;
+import principal.controlador.UsuarioAdministrador.GestorBtnAdmOpCuenta;
+import principal.controlador.UsuarioAdministrador.GestorBtnCrearCuenta;
 import principal.controlador.UsuarioAdministrador.GestorBtnCrearTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorBtnCrearUsr;
 import principal.controlador.UsuarioAdministrador.GestorBtnMarcoAdmin;
@@ -30,7 +35,12 @@ import principal.vista.UsuarioCorriente.MarcoOpUsrCorriente;
 import principal.vista.UsuarioCorriente.MarcoSelCuenta;
 import principal.vista.UsuarioCorriente.MarcoUsuarioCorriente;
 
-
+/** 
+ * Es el JFrame donde se añadirán los ActionListener a los botones y donde estarán todos los componentes
+ * 
+ * @author Noel
+ *
+ */
 public class Vista extends JFrame{
 	private ArrayList<UsuarioDTO> usuarios;
 	private MarcoLogin Marcologin;
@@ -96,6 +106,21 @@ public class Vista extends JFrame{
 		usrAdmin.getAdmTarjetas().getCrearTarjeta().getCrear().addActionListener(new GestorBtnCrearTarjeta(this));
 		
 		usrAdmin.getAdmCajero().getActualizar().addActionListener(new GestorBtnAdmActSaldo(this));
+		
+		usrAdmin.getAdmCuentas().getBuscar().addActionListener(new GestorAdmFiltrarCuenta(this));
+		
+		for(int i=0; i<usrAdmin.getAdmCuentas().getBtn().length; i++) {
+			usrAdmin.getAdmCuentas().getBtn()[i].addActionListener(new GestorBtnAdmOpCuenta(i, this));
+		}
+		
+		
+		usrAdmin.getAdmCuentas().getCrearCuenta().getCrear().addActionListener(new GestorBtnCrearCuenta(this));
+		
+		usrAdmin.getAdmCuentas().getAdmMovi().getBuscar().addActionListener(new GestorAdmFiltrarHistorial(this));
+		
+		for(int i=0; i<usrAdmin.getAdmCuentas().getAdmMovi().getBtn().length; i++) {
+			usrAdmin.getAdmCuentas().getAdmMovi().getBtn()[i].addActionListener(new GestorAdmBtnOpHistorial(i, this));
+		}
 	}
 	
 	

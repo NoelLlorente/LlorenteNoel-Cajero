@@ -20,7 +20,11 @@ import principal.modelo.DTO.UsuarioCorriente;
 import principal.modelo.DTO.UsuarioDTO;
 import principal.vista.Excepciones;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmUsuarios;
-
+/**
+ * 
+ * @author Noel
+ *UsuarioDAO es el objeto que se comunicará con la base de datos para realizar operaciones sobre los usuarios
+ */
 public class UsuarioDAO implements Consultas, Excepciones {
     private String clave = "admin";
     public ArrayList<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
@@ -29,9 +33,16 @@ public class UsuarioDAO implements Consultas, Excepciones {
     private ResultSet resultSet = null;
     private Conexion con = new Conexion();
     
+    /**
+     * Constructor vacio
+     */
     public UsuarioDAO() {
     }
     
+    /**
+     * Constructor que carga los datos de un usuario especifico
+     * @param usr es el dni del usuario sobre el que se obtendrá la información
+     */
     public UsuarioDAO(String usr) {
             try {
             	ps = con.getConexion().prepareStatement(CARGAR_USR);
@@ -78,7 +89,12 @@ public class UsuarioDAO implements Consultas, Excepciones {
     		}
     }
 
-
+/**
+ * Se validará que los datos del login sean correctos
+ * @param usuario es el dni de usuario
+ * @param password es el pin 
+ * @return true si todo es correcto
+ */
     public boolean validarUsuario(String usuario, String password) {
         try {
             this.ps = this.con.getConexion().prepareStatement(BUSCAR_PIN);
@@ -96,6 +112,11 @@ public class UsuarioDAO implements Consultas, Excepciones {
         }
     }
 
+    /**
+     * Devolvera si el usuario es corriente o administrador
+     * @param dni es el dni del usuario que se ha logueado
+     * @return 1 o 2
+     */
     public int devolverTipoUsuario(String dni) {
         try {
             this.ps = this.con.getConexion().prepareStatement(TIPO_USR);
@@ -114,6 +135,11 @@ public class UsuarioDAO implements Consultas, Excepciones {
     }
 
 	
+    /**
+     * Obtener la tarjeta dado un dni de usuario
+     * @param dniUsuario es el dni del usuario
+     * @return TarjetaDTO
+     */
     private TarjetaDTO obtenerTarjeta(String dniUsuario) {
         TarjetaDTO tarjeta = null;
 
@@ -141,6 +167,11 @@ public class UsuarioDAO implements Consultas, Excepciones {
         return tarjeta;
     }
 	     
+    /**
+     * Cargar las cuentas dada un id de tarjeta
+     * @param idTarjeta es el id de la tarjeta
+     * @return ArrayList<CuentaDTO>
+     */
     private ArrayList<CuentaDTO> obtenerCuentas(String idTarjeta) {
         ArrayList<CuentaDTO> cuentas = new ArrayList<>();
 
@@ -171,7 +202,10 @@ public class UsuarioDAO implements Consultas, Excepciones {
     }
 
     
-    
+    /**
+     * Se cargan todos los usuarios
+     * @param admUsr es el JDialog JDMarcoAdmUsuarios
+     */
     public void cargarUsuarios(JDMarcoAdmUsuarios admUsr) {
     	String[] datos = new String[7];
     	
@@ -224,7 +258,10 @@ public class UsuarioDAO implements Consultas, Excepciones {
     	}
      }
     
-   
+   /**
+    * Método para modificar los usuarios
+    * @param admUsr es el JDialog JDMarcoAdmUsuarios
+    */
     public void modificarUsuario(JDMarcoAdmUsuarios admUsr) {
     	int fila = admUsr.getTable().getSelectedRow();
     	
@@ -276,7 +313,10 @@ public class UsuarioDAO implements Consultas, Excepciones {
     	
     }
     
-    
+    /**
+     * Se eliminará el usuario seleccionado
+     * @param admUsr es el JDialog JDMarcoAdmUsuarios
+     */
     public void eliminarUsuario(JDMarcoAdmUsuarios admUsr) {
     	int fila = admUsr.getTable().getSelectedRow();
     	
@@ -309,7 +349,10 @@ public class UsuarioDAO implements Consultas, Excepciones {
     	
     }
     
-    
+    /** 
+     * Crear nuevos usuarios
+     * @param admUsr es el JDialog JDMarcoAdmUsuarios
+     */
     public void crearUsuario(JDMarcoAdmUsuarios admUsr) {
         String dni = admUsr.getCrearUsr().getTxtDni().getText();
         String nombre = admUsr.getCrearUsr().getTxtNombre().getText();

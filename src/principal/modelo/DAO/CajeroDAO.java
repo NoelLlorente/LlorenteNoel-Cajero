@@ -12,6 +12,11 @@ import principal.modelo.DTO.CajeroDTO;
 import principal.vista.Excepciones;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmCajero;
 
+/**
+ * 
+ * @author Noel
+ *CajeroDAO en el se harán las operaciones sobre la base de datos que tengan que ver con el cajero
+ */
 public class CajeroDAO implements Consultas, Excepciones{
 	CajeroDTO cajero = null;
     private PreparedStatement ps = null;
@@ -20,7 +25,10 @@ public class CajeroDAO implements Consultas, Excepciones{
     private Conexion con = new Conexion();
     
 
-    
+    /**
+     * Para cargar los datos del cajero
+     * @return CajeroDTO 
+     */
     public CajeroDTO obtenerCajero() {
         CajeroDTO cajero = null;
         
@@ -40,6 +48,12 @@ public class CajeroDAO implements Consultas, Excepciones{
         return cajero;
     }
     
+    /**
+     * 
+     * @param op es la operación a realizar si es 1 es ingresar, si es 2 es retirar
+     * @param saldo es el saldo a ingresar en el cajero
+     * método para actualizar el saldo del cajero
+     */
     public void actualizarSaldo(int op, double saldo) {
     	try {
     		cajero = obtenerCajero();
@@ -63,7 +77,11 @@ public class CajeroDAO implements Consultas, Excepciones{
     	
     }
     
-    
+    /**
+     * 
+     * @param marco es el JDMarcoAdmCajero
+     * Se encarga de cargar el cajero para las opciones de administración
+     */
     public void cargarCajero(JDMarcoAdmCajero marco) {
     	try {
     		sta = con.getConexion().createStatement();
@@ -79,7 +97,10 @@ public class CajeroDAO implements Consultas, Excepciones{
     	
     }
     
-    
+    /**
+     * Se encarga de actualizar el saldo del cajero desde las opciones de administrador
+     * @param marco es el JDMarcoAdmCajero
+     */
     public void actualizarSaldoCajero(JDMarcoAdmCajero marco) {
     	if(validarSaldoCajero(marco.getSaldo().getText())) {
     	try {

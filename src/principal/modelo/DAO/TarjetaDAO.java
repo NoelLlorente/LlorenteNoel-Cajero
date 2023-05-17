@@ -25,7 +25,11 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	private ResultSet resultSet = null;
 	private Conexion con = new Conexion();
 
-
+/**
+ * Método para actualizar el pin de la tarjeta
+ * @param pin es el nuevo pin 
+ * @param cmb_pin es el JDialog JDCambiarPin
+ */
 	public void actualizarPin(String pin, JDCambiarPin cmb_pin) {
 	     try {
 	         this.ps = con.getConexion().prepareStatement(ACTUALIZAR_PIN);
@@ -49,7 +53,10 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	
 	
 	
-	
+	/**
+	 * Se cargarán los datos de una tarjeta indicada
+	 * @param admTarjeta es el JDialog JDMarcoAdmTarjetas
+	 */
 	 public void cargarTarjetas(JDMarcoAdmTarjetas admTarjeta) {
 	    	String[] datos = new String[5];
 	    	
@@ -93,6 +100,10 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	     }
 	 
 	 
+	 /**
+	  * Se modificarán los datos de la tarjeta deseada
+	  * @param admTarjeta es el JDialog JDMarcoAdmTarjetas
+	  */
 	 public void modificarTarjeta(JDMarcoAdmTarjetas admTarjeta) {
 	    	int fila = admTarjeta.getTable().getSelectedRow();
 	    	
@@ -140,6 +151,10 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    	 }
 	    }
 	 
+	 /**
+	  * Método para eliminar la tarjeta seleccionada
+	  * @param admTarjeta es el JDialog JDMarcoAdmTarjetas
+	  */
 	 public void eliminarTarjeta(JDMarcoAdmTarjetas admTarjeta) {
 	    	int fila = admTarjeta.getTable().getSelectedRow();
 	    	
@@ -173,7 +188,10 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    }
 	 
 	 
-	 
+	 /**
+	  * Método para crear tarjetas 
+	  * @param admTarjeta es el JDialog JDMarcoAdmTarjetas
+	  */
 	 public void crearTarjeta(JDMarcoAdmTarjetas admTarjeta) {
 		 	String ID = admTarjeta.getCrearTarjeta().getTxtid().getText();
 	    	String pin = admTarjeta.getCrearTarjeta().getTxtpin().getText();
@@ -208,7 +226,11 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	        }
 	 }
 	 
-	 
+	 /**
+	  * Se validará que el dni que se ha introducido existe
+	  * @param dni_usr es el dni del usuario
+	  * @return true 
+	  */
 	 public boolean validarDniUsr(String dni_usr) {
 		    try {
 		        this.ps = con.getConexion().prepareStatement(CARGAR_USR);
