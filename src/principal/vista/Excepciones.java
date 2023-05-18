@@ -50,7 +50,7 @@ public interface Excepciones {
 	 */
 
 	public default boolean validarSaldo(double saldo) {
-		if(saldo<=0) {
+		if(saldo<0) {
 			JOptionPane.showMessageDialog(null,"Error, verifique que ha introducido una cantidad valida, o que el campo este no este vacio");
 			return true;
 		}
@@ -67,6 +67,14 @@ public interface Excepciones {
 			JOptionPane.showMessageDialog(null,"Error, rellene los campos");
 			return true;
 		}
+		
+		 try {
+		        double tipoNumero = Double.parseDouble(saldo);
+		    } catch (NumberFormatException e) {
+		        JOptionPane.showMessageDialog(null, "Error, el saldo debe ser un número");
+		        return true;
+		    }
+		
 		return false;
 	}
 	
@@ -215,6 +223,66 @@ public interface Excepciones {
 					JOptionPane.showMessageDialog(null, "El pin es invalido, solo puede contener numeros");
 					return false;
 				}
+		
+
+		 if(cvv.length()<3||cvv.length()>3||cvv.isEmpty()) {
+			   JOptionPane.showMessageDialog(null, "Error, el cvv no cumple con la longitud del sistema, o esta vacio");
+			   return false;
+		   }
+		   
+		   if(!cvv.matches("[0-9]+")) {
+			   JOptionPane.showMessageDialog(null, "Error, el cvv es invalido");
+			   return false;
+		   }
+		   
+
+	    if (fecha.length() != 10 || (!fecha.matches("\\d{4}/\\d{2}/\\d{2}") && !fecha.matches("\\d{4}-\\d{2}-\\d{2}"))) {
+	        JOptionPane.showMessageDialog(null, "Error, la fecha es inválida o no cumple con el formato yyyy/mm/dd");
+	        return false;
+	    }
+
+	   
+	   if (dni.length() < 8 || dni.length() > 9) {
+	        JOptionPane.showMessageDialog(null, "El DNI introducido no cumple con las longitudes del sistema o está vacío");
+	        return false;
+	    }
+
+	    if (!dni.matches("[a-zA-Z0-9]+")) {
+	        JOptionPane.showMessageDialog(null, "Error, el DNI no puede contener caracteres especiales");
+	        return false;
+	    }
+	    
+	  if(!validadoUsr) {
+		  JOptionPane.showMessageDialog(null, "Error, ese dni no existe");
+		  return false;
+	  }
+	   
+	return true;
+	}
+	
+	
+	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean espinCif) {
+		
+		 if(id.length()<6||id.length()>17 ||id.isEmpty()) {
+		    	JOptionPane.showMessageDialog(null, "Error, el id no cumple con la longitud del sistema, o esta vacio");
+		    	return false;
+		    }
+		if (!id.matches("[0-9]+")) {
+		        JOptionPane.showMessageDialog(null, "Error, el numero de tarjeta (ID) es inválido");
+		        return false;
+		    }
+		    
+		if(!espinCif) {
+			if(pin.length()<3 || pin.length()>6) {
+				JOptionPane.showMessageDialog(null, "El pin no puede ser inferior a 3 caracteres o mayor a 6 caracteres");
+				return false;
+			}
+			if(!pin.matches("[0-9]+")) {
+				JOptionPane.showMessageDialog(null, "El pin es invalido, solo puede contener numeros");
+				return false;
+			}
+		}
+		
 		
 
 		 if(cvv.length()<3||cvv.length()>3||cvv.isEmpty()) {

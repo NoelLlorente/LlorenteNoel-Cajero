@@ -3,19 +3,20 @@ package principal.modelo.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.commons.codec.binary.Hex;
+
 import principal.modelo.Conexion;
 import principal.modelo.Consultas;
 import principal.modelo.DTO.TarjetaDTO;
-import principal.modelo.DTO.UsuarioDTO;
 import principal.vista.Excepciones;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmTarjetas;
-import principal.vista.UsuarioAdministrador.JDMarcoAdmUsuarios;
 import principal.vista.UsuarioCorriente.JDCambiarPin;
 
 public class TarjetaDAO implements Consultas, Excepciones{
@@ -123,33 +124,56 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    	String dni_usr = admTarjeta.getTable().getValueAt(fila, 4).toString();
 	    	
 	    	
-	    	 if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr))) {
-	    	
-	    	try {
-	    		ps = con.getConexion().prepareStatement(MODIFICAR_TARJETA);
-	    		ps.setString(1, pin);
-	    		ps.setString(2, cvv);
-	    		ps.setString(3, fecha_cad);
-	    		ps.setString(4, dni_usr);
-	    		ps.setString(5, ID);
-	    		
-	    		int rowsAffected = ps.executeUpdate();
-	    		
-	   		 if (rowsAffected > 0) {
-		             JOptionPane.showMessageDialog(null, "¡Datos Actualizados Correctamente!");
-		         } else {
-		             JOptionPane.showMessageDialog(null, "Error, No se pudo actualizar");
-		        }
-	   		 
-	   		cargarTarjetas(admTarjeta.getMarcoAdm().getAdmTarjetas());
-	   		admTarjeta.getModelo().fireTableDataChanged();
-	   		 
-	    	}catch(Exception e) {
-	    		JOptionPane.showMessageDialog(null, "Error al modificar los datos de la tarjeta, contacte con un administrador");
-	    		System.out.println("Error al modificar los datos de la tarjeta"+e.getLocalizedMessage());
-	    	}
+	    	 boolean pinCifrado = esPinCifrado(pin);
+	    	 String codSQL;
+	    	 if(!pinCifrado) {
+	    		 codSQL = MODIFICAR_TARJETA;
+	    	 }else {
+	    		 codSQL = MODIFICAR_TARJETA_PINCIF;
 	    	 }
+ 		
+	    		if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), pinCifrado)) { 
+	    	    	try {
+	    	    		ps = con.getConexion().prepareStatement(codSQL);
+	    	    		ps.setString(1, pin);
+	    	    		ps.setString(2, cvv);
+	    	    		ps.setString(3, fecha_cad);
+	    	    		ps.setString(4, dni_usr);
+	    	    		ps.setString(5, ID);
+	    	    		
+	    	    		int rowsAffected = ps.executeUpdate();
+	    	    		
+	    	   		 if (rowsAffected > 0) {
+	    		             JOptionPane.showMessageDialog(null, "¡Datos Actualizados Correctamente!");
+	    		         } else {
+	    		             JOptionPane.showMessageDialog(null, "Error, No se pudo actualizar");
+	    		        }
+	    	   		 
+	    	   		cargarTarjetas(admTarjeta.getMarcoAdm().getAdmTarjetas());
+	    	   		admTarjeta.getModelo().fireTableDataChanged();
+	    	   		 
+	    	    	}catch(Exception e) {
+	    	    		JOptionPane.showMessageDialog(null, "Error al modificar los datos de la tarjeta, contacte con un administrador");
+	    	    		System.out.println("Error al modificar los datos de la tarjeta"+e.getLocalizedMessage());
+	    	    	} 
+	    	
+	    		}
+	     
 	    }
+	 
+	 
+	 /**
+	  * Devuelve falso si el pin no esta cifrado
+	  * @param pin es el pin recibido
+	  * @return true o false
+	  */
+	 public boolean esPinCifrado(String pin) {
+		    if(pin.length()==32) {
+		    	return true;
+		    }
+		    return false;
+		}
+	 
 	 
 	 /**
 	  * Método para eliminar la tarjeta seleccionada
@@ -198,7 +222,8 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    	String cvv = admTarjeta.getCrearTarjeta().getTxtcvv().getText();
 	    	String fecha_cad = admTarjeta.getCrearTarjeta().getTxtfechaCad().getText();
 	    	String dni_usr = admTarjeta.getCrearTarjeta().getTxtdni_usr().getText();
-
+	    
+	    	
 	       if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr))) {
 	            try {
 	                ps = con.getConexion().prepareStatement(INSERTAR_TARJETA);
@@ -207,7 +232,7 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	                ps.setString(3, cvv);
 	                ps.setString(4, fecha_cad);
 	                ps.setString(5, dni_usr);
-	               ;
+	              
 	                int rowsAffected = ps.executeUpdate();
 
 	                if (rowsAffected > 0) {
@@ -225,6 +250,13 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	            }
 	        }
 	 }
+	 
+	 
+	 
+	 
+	
+	
+	 
 	 
 	 /**
 	  * Se validará que el dni que se ha introducido existe
@@ -245,4 +277,5 @@ public class TarjetaDAO implements Consultas, Excepciones{
 		    }
 		    return false; 
 		}
+
 }
