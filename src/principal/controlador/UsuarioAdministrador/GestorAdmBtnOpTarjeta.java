@@ -46,6 +46,13 @@ public class GestorAdmBtnOpTarjeta implements ActionListener{
 			/**
 			 * Caso 0: Se hace visible el JDialog de Crear Tarjetas
 			 */
+			
+			v.getUsrAdmin().getAdmTarjetas().getCrearTarjeta().getTxtid().setText("");
+			v.getUsrAdmin().getAdmTarjetas().getCrearTarjeta().getTxtpin().setText("");
+			v.getUsrAdmin().getAdmTarjetas().getCrearTarjeta().getTxtcvv().setText("");
+			v.getUsrAdmin().getAdmTarjetas().getCrearTarjeta().getTxtfechaCad().setText("");
+			v.getUsrAdmin().getAdmTarjetas().getCrearTarjeta().getTxtdni_usr().setText("");
+	
 			v.getUsrAdmin().getAdmTarjetas().getCrearTarjeta().setVisible(true);
 			break;
 		case 1:

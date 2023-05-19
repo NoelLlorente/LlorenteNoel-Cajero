@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import org.apache.commons.codec.binary.Hex;
+
 
 import principal.modelo.Conexion;
 import principal.modelo.Consultas;
@@ -65,6 +65,7 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    	
 	    	if(admTarjeta.getComboBuscar().getSelectedIndex()==0) {
 	    		codSQL = LISTAR_TARJETAS;
+	    		
 	    	}else if(admTarjeta.getComboBuscar().getSelectedIndex()==1) {
 	    		codSQL = FILTRAR_TARJETA_ID+"'"+admTarjeta.getTxtBuscar().getText()+"'";
 	    	}else if(admTarjeta.getComboBuscar().getSelectedIndex()==2) {

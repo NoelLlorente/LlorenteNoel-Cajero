@@ -26,7 +26,7 @@ public class MarcoUsuarioCorriente extends JPanel{
 	private JDCambiarPin cmb_pin;
 	private JButton operacion;
 	private JButton cambiar_pin;
-	
+	private JButton cerrar_sesion;
 	
 	public MarcoUsuarioCorriente() {
 		JLabel texto = new JLabel("Datos Tarjeta");
@@ -43,6 +43,7 @@ public class MarcoUsuarioCorriente extends JPanel{
 		jl_cvv = new JLabel("CVV:");
 		operacion = new JButton("Cuentas");
 		cambiar_pin = new JButton("Cambiar Pin");
+		cerrar_sesion = new JButton("Cerrar Sesión");
 		txt_numTarjeta = new JTextField();
 		txt_numTarjeta.setEditable(false);
 		txt_fechaCad = new JTextField();
@@ -63,6 +64,7 @@ public class MarcoUsuarioCorriente extends JPanel{
 	
 		jp2.add(operacion);
 		jp2.add(cambiar_pin);
+		jp2.add(cerrar_sesion);
 		this.add(jp);
 		this.add(Box.createRigidArea(new Dimension(0, 30)));
 		this.add(jp1);
@@ -72,6 +74,26 @@ public class MarcoUsuarioCorriente extends JPanel{
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	
 	}
+
+
+	
+
+	
+	
+	public JButton getCerrar_sesion() {
+		return cerrar_sesion;
+	}
+
+
+
+
+
+
+	public void setCerrar_sesion(JButton cerrar_sesion) {
+		this.cerrar_sesion = cerrar_sesion;
+	}
+
+
 
 
 

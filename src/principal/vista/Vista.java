@@ -14,14 +14,16 @@ import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarHistorial;
 import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorAdmFiltrarUsr;
 import principal.controlador.UsuarioAdministrador.GestorBtnAdmActSaldo;
-import principal.controlador.UsuarioAdministrador.GestorBtnAdmOpCuenta;
+import principal.controlador.UsuarioAdministrador.GestorAdmBtnOpCuenta;
 import principal.controlador.UsuarioAdministrador.GestorBtnCrearCuenta;
 import principal.controlador.UsuarioAdministrador.GestorBtnCrearTarjeta;
 import principal.controlador.UsuarioAdministrador.GestorBtnCrearUsr;
 import principal.controlador.UsuarioAdministrador.GestorBtnMarcoAdmin;
+import principal.controlador.UsuarioAdministrador.GestorCerrarSesionAdmin;
 import principal.controlador.UsuarioCorriente.GestorBotoneraOpUsr;
 import principal.controlador.UsuarioCorriente.GestorBtnCambiarPin;
 import principal.controlador.UsuarioCorriente.GestorBtnsSelCuenta;
+import principal.controlador.UsuarioCorriente.GestorCerrarSesionCorriente;
 import principal.controlador.UsuarioCorriente.GestorCmbPin;
 import principal.controlador.UsuarioCorriente.GestorIngresarSaldo;
 import principal.controlador.UsuarioCorriente.GestorRetirarSaldo;
@@ -30,7 +32,6 @@ import principal.controlador.UsuarioCorriente.GestorSalirOpCorriente;
 import principal.controlador.UsuarioCorriente.GestorSelCuentaUsrCorriente;
 import principal.modelo.DTO.UsuarioDTO;
 import principal.vista.UsuarioAdministrador.MarcoUsuarioAdministrador;
-import principal.vista.UsuarioCorriente.MarcoLogin;
 import principal.vista.UsuarioCorriente.MarcoOpUsrCorriente;
 import principal.vista.UsuarioCorriente.MarcoSelCuenta;
 import principal.vista.UsuarioCorriente.MarcoUsuarioCorriente;
@@ -71,6 +72,8 @@ public class Vista extends JFrame{
 		Marcologin.getLogin().addActionListener(new GestorLogin(Marcologin, this, usrCorriente));
 		usrCorriente.getOperacion().addActionListener(new GestorSelCuentaUsrCorriente(this));
 		usrCorriente.getCambiar_pin().addActionListener(new GestorCmbPin(usrCorriente.getCmb_pin()));
+		usrCorriente.getCerrar_sesion().addActionListener(new GestorCerrarSesionCorriente(this));
+		
 		for(int i=0; i<opUsrCorriente.getBotones().length; i++) {
 			opUsrCorriente.getBotones()[i].addActionListener(new GestorBotoneraOpUsr(i, this));
 		}
@@ -88,6 +91,8 @@ public class Vista extends JFrame{
 		for(int i=0; i<usrAdmin.getBtn_marcoAdm().length; i++) {	
 			usrAdmin.getBtn_marcoAdm()[i].addActionListener(new GestorBtnMarcoAdmin(i, this));
 		}
+		
+		usrAdmin.getCerrar_sesion().addActionListener(new GestorCerrarSesionAdmin(this));
 		
 		usrAdmin.getAdmUsr().getBuscar().addActionListener(new GestorAdmFiltrarUsr(this));
 		
@@ -110,7 +115,7 @@ public class Vista extends JFrame{
 		usrAdmin.getAdmCuentas().getBuscar().addActionListener(new GestorAdmFiltrarCuenta(this));
 		
 		for(int i=0; i<usrAdmin.getAdmCuentas().getBtn().length; i++) {
-			usrAdmin.getAdmCuentas().getBtn()[i].addActionListener(new GestorBtnAdmOpCuenta(i, this));
+			usrAdmin.getAdmCuentas().getBtn()[i].addActionListener(new GestorAdmBtnOpCuenta(i, this));
 		}
 		
 		

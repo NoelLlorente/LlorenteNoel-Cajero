@@ -13,7 +13,7 @@ import principal.modelo.DAO.CuentaDAO;
  * @author Noel
  *Controlador de botones del marco de administración de Cuentas
  */
-public class GestorBtnAdmOpCuenta implements ActionListener{
+public class GestorAdmBtnOpCuenta implements ActionListener{
 private Vista v;
 private int acc;
 
@@ -22,7 +22,7 @@ private int acc;
  * @param acc es el indice del botón seleccionado
  * @param v es el JFrame
  */
-public GestorBtnAdmOpCuenta(int acc, Vista v) {
+public GestorAdmBtnOpCuenta(int acc, Vista v) {
 	this.acc = acc;
 	this.v = v;
 }
@@ -43,6 +43,12 @@ public void actionPerformed(ActionEvent e) {
 		 * Caso 0: Se hace visible el JDialog de crear cuentas
 		 * 
 		 */
+		
+		v.getUsrAdmin().getAdmCuentas().getCrearCuenta().getTxtid().setText("");
+		v.getUsrAdmin().getAdmCuentas().getCrearCuenta().getTxtnombre().setText("");
+		v.getUsrAdmin().getAdmCuentas().getCrearCuenta().getTxtsaldo().setText("");
+		v.getUsrAdmin().getAdmCuentas().getCrearCuenta().getTxtid_tarjeta().setText("");
+		
 		v.getUsrAdmin().getAdmCuentas().getCrearCuenta().setVisible(true);
 		break;
 	case 1:
@@ -71,6 +77,15 @@ public void actionPerformed(ActionEvent e) {
     	/**
     	 * Caso 3: Se hace visible el marco de administración del historial
     	 */
+    	if(v.getUsrAdmin().getAdmCuentas().getAdmMovi().getTable().getRowCount()>0) {
+			 for(int i=0; i<v.getUsrAdmin().getAdmCuentas().getAdmMovi().getTable().getRowCount(); i++) {
+				 v.getUsrAdmin().getAdmCuentas().getAdmMovi().getModelo().removeRow(i);
+				 i-=1;
+			 }
+		 }
+		 	if(!v.getUsrAdmin().getAdmCuentas().getAdmMovi().getTxtBuscar().getText().isEmpty()) {
+		 		v.getUsrAdmin().getAdmCuentas().getAdmMovi().getTxtBuscar().setText("");
+		 	}
 		v.getUsrAdmin().getAdmCuentas().getAdmMovi().setVisible(true);
 		break;
 	case 4:

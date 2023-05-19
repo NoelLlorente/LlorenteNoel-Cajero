@@ -58,7 +58,9 @@ public class GestorSelCuentaUsrCorriente implements ActionListener{
         if (tarjeta != null) {
             ArrayList<CuentaDTO> cuentas = tarjeta.getCuenta();
             vista.getSelCuenta().getModeloLista().clear(); // Limpiar el modelo antes de agregar nuevos elementos
-
+            if(!vista.getSelCuenta().getListaCuentas().isSelectionEmpty()) {
+            	vista.getSelCuenta().getListaCuentas().clearSelection();
+            }
             if (cuentas.isEmpty()) {
                 vista.getSelCuenta().getModeloLista().addElement("No tienes cuentas");
             } else {

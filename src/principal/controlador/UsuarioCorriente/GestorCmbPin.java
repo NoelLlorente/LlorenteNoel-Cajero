@@ -36,6 +36,9 @@ public class GestorCmbPin implements ActionListener, Excepciones {
 		/**
 		 * Se hace visible el marco
 		 */
+		if(!cmb_pin.getNew_pin().getText().isEmpty()) {
+			cmb_pin.getNew_pin().setText("");
+		}
 		cmb_pin.setVisible(true);
 	}}
 

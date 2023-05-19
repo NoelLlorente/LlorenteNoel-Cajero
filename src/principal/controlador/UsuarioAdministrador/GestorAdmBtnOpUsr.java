@@ -48,6 +48,15 @@ public class GestorAdmBtnOpUsr implements ActionListener{
 			 * Caso 0: se hace visible el marco donde se crearán los usuarios
 			 * 
 			 */
+			v.getUsrAdmin().getAdmUsr().getCrearUsr().getTxtDni().setText("");
+			v.getUsrAdmin().getAdmUsr().getCrearUsr().getTxtNombre().setText("");
+			v.getUsrAdmin().getAdmUsr().getCrearUsr().getTxtApellidos().setText("");
+			v.getUsrAdmin().getAdmUsr().getCrearUsr().getTxtFechaNac().setText("");
+			v.getUsrAdmin().getAdmUsr().getCrearUsr().getTxtTelf().setText("");
+			v.getUsrAdmin().getAdmUsr().getCrearUsr().getTxtDirec().setText("");
+			v.getUsrAdmin().getAdmUsr().getCrearUsr().getTxtTipo().setText("");
+			
+			
 			v.getUsrAdmin().getAdmUsr().getCrearUsr().setVisible(true);
 			break;
 		case 1:

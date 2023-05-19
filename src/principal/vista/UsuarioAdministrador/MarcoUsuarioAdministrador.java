@@ -21,11 +21,13 @@ public class MarcoUsuarioAdministrador extends JPanel{
 	private JDMarcoAdmTarjetas admTarjetas;
 	private JDMarcoAdmCajero admCajero;
 	private JDMarcoAdmCuentas admCuentas;
+	private JButton cerrar_sesion;
 	public MarcoUsuarioAdministrador() {
 		admUsr = new JDMarcoAdmUsuarios(this);
 		admTarjetas = new JDMarcoAdmTarjetas(this);
 		admCajero = new JDMarcoAdmCajero(this);
 		admCuentas=new JDMarcoAdmCuentas(this);
+		cerrar_sesion = new JButton("Cerrar Sesión");
 		JLabel texto = new JLabel("Panel Administrador");
 		Font font = new Font(texto.getFont().getName(), Font.PLAIN, 30);
 		texto.setFont(font);
@@ -43,11 +45,31 @@ public class MarcoUsuarioAdministrador extends JPanel{
 			jp2.add(btn_marcoAdm[i]);
 		}
 		
+		JPanel jp3 = new JPanel();
+		jp3.setLayout(new FlowLayout(FlowLayout.CENTER));
+		jp3.add(cerrar_sesion);
+		
 		this.add(Box.createRigidArea(new Dimension(0, 60)));
 		this.add(jp2);
+		this.add(Box.createRigidArea(new Dimension(0, 40)));
+		this.add(jp3);
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
 	}
+
+	
+	
+	public JButton getCerrar_sesion() {
+		return cerrar_sesion;
+	}
+
+
+
+	public void setCerrar_sesion(JButton cerrar_sesion) {
+		this.cerrar_sesion = cerrar_sesion;
+	}
+
 
 	public JButton[] getBtn_marcoAdm() {
 		return btn_marcoAdm;

@@ -106,6 +106,7 @@ public class HistorialDAO implements Consultas{
     	
     	if(marco.getAdmMovi().getComboBuscar().getSelectedIndex()==0) {
     		codSQL = LISTAR_HISTORIAL+"'"+ID+"'";
+    		
     	}else if(marco.getAdmMovi().getComboBuscar().getSelectedIndex()==1) {
     		codSQL = FILTRAR_HISTORIAL_ID+"'"+marco.getAdmMovi().getTxtBuscar().getText()+"'";
     	}else if(marco.getAdmMovi().getComboBuscar().getSelectedIndex()==2) {

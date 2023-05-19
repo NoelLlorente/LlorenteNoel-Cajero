@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import principal.modelo.DAO.UsuarioDAO;
 import principal.modelo.DTO.UsuarioDTO;
 import principal.vista.Excepciones;
+import principal.vista.MarcoLogin;
 import principal.vista.Vista;
 import principal.vista.UsuarioAdministrador.MarcoUsuarioAdministrador;
-import principal.vista.UsuarioCorriente.MarcoLogin;
 import principal.vista.UsuarioCorriente.MarcoUsuarioCorriente;
 import principal.modelo.DAO.TarjetaDAO;
 import javax.swing.BoxLayout;
@@ -84,6 +84,12 @@ public class GestorLogin implements ActionListener, Excepciones{
 	 */
 	public void iniciarSesion() {
 		
+		if(vista.getMarcologin().getDnitxf().getText().isEmpty()) {
+			vista.getMarcologin().getDnitxf().setText("");
+		}
+		if(vista.getMarcologin().getPintxf().getText().isEmpty()) {
+			vista.getMarcologin().getPintxf().setText("");
+		}
 		
 		String dni = Marcologin.getDnitxf().getText();
 		String passwd = Marcologin.getPintxf().getText();

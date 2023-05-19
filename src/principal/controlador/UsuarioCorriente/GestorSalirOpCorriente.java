@@ -30,6 +30,9 @@ public class GestorSalirOpCorriente implements ActionListener{
 		 * Se oculta el MarcoOpUsrCorriente y se hace visible el marco de selección de cuenta
 		 * 
 		 */
+		if(!v.getSelCuenta().getListaCuentas().isSelectionEmpty()) {
+			v.getSelCuenta().getListaCuentas().clearSelection();
+		}
 		v.getOpUsrCorriente().setVisible(false);
 		v.getSelCuenta().setVisible(true);
 		
