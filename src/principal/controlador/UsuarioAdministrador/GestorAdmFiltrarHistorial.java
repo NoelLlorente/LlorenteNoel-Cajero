@@ -39,6 +39,7 @@ public void actionPerformed(ActionEvent e) {
 	 * @see principal.modelo.DAO.HistorialDAO#obtenerHistorial
 	 */
 	historial.obtenerHistorial(v.getUsrAdmin().getAdmCuentas());
+//	v.getUsrAdmin().getAdmCuentas().getAdmMovi().getTxtBuscar().setText("");
 }
 
 

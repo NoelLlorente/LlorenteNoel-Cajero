@@ -36,6 +36,8 @@ public class GestorAdmFiltrarTarjeta implements ActionListener{
 		 * @see principal.modelo.DAO.TarjetaDAO#cargarTarjetas
 		 */
 		tarjeta.cargarTarjetas(v.getUsrAdmin().getAdmTarjetas());
+//		v.getUsrAdmin().getAdmTarjetas().getTxtBuscar().setText("");
+//		v.getUsrAdmin().getAdmTarjetas().getComboBuscar().setSelectedIndex(0);
 	}
 	
 	

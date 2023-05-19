@@ -27,17 +27,20 @@ public class GestorAdmFiltrarUsr implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		/**
 		 * Creo un objeto UsuarioDAO para obtener sus métodos
 		 * @see principal.modelo.DAO.UsuarioDAO
 		 */
 		UsuarioDAO usr = new UsuarioDAO();
+			
 		/**
 		 *
 		 * Llamo al método cargar usuario, que carga los usuario a la tabla
 		 * @see principal.modelo.DAO.UsuarioDAO#cargarUsuarios
 		 */
 		usr.cargarUsuarios(v.getUsrAdmin().getAdmUsr());
+//		v.getUsrAdmin().getAdmUsr().getTxtBuscar().setText("");
 	}
 	
 	

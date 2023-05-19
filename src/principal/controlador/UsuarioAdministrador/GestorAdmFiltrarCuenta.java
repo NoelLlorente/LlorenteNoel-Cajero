@@ -38,6 +38,7 @@ public void actionPerformed(ActionEvent e) {
 	 * @see principal.modelo.DAO.CuentaDAO#cargarCuentas
 	 */
 	cuenta.cargarCuentas(v.getUsrAdmin().getAdmCuentas());
+//	v.getUsrAdmin().getAdmCuentas().getTxtBuscar().setText("");
 }
 
 
