@@ -133,7 +133,7 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    		 codSQL = MODIFICAR_TARJETA_PINCIF;
 	    	 }
  		
-	    		if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), pinCifrado)) { 
+	    		if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), pinCifrado, validarTarjetaUsuario(dni_usr))) { 
 	    	    	try {
 	    	    		ps = con.getConexion().prepareStatement(codSQL);
 	    	    		ps.setString(1, pin);
@@ -225,7 +225,7 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    	String dni_usr = admTarjeta.getCrearTarjeta().getTxtdni_usr().getText();
 	    
 	    	
-	       if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr))) {
+	       if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), validarTarjetaUsuario(dni_usr))) {
 	            try {
 	                ps = con.getConexion().prepareStatement(INSERTAR_TARJETA);
 	                ps.setString(1, ID);
@@ -278,5 +278,26 @@ public class TarjetaDAO implements Consultas, Excepciones{
 		    }
 		    return false; 
 		}
+	 
+	 /**
+	  * Se validará que el dni de usuario con el que se intenta asociar la tarjeta no se repita,
+	  * es decir no pueden haber tarjetas asociadas a más de un usuario
+	  * @param dni_usr
+	  * @return true si se valida correctamente
+	  */
+	 public boolean validarTarjetaUsuario(String dni_usr) {
+		 try {
+		        this.ps = con.getConexion().prepareStatement(VALIDAR_TARJETA_USR);
+		        this.ps.setString(1, dni_usr);
+		        ResultSet rs = ps.executeQuery();
+		        
+		        if (rs.next()) {
+		            return false; 
+		        }
+		    } catch (Exception e) {
+		        System.out.println("Error al validar, ya existe una tarjeta asociada a ese usuario: " + e.getMessage());
+		    }
+		    return true; 
+	 }
 
 }

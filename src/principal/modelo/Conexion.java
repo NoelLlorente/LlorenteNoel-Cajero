@@ -30,7 +30,7 @@ public class Conexion {
 			Class.forName(driver);
 			
 			//Configuramos la conexion
-			conexion = DriverManager.getConnection("jdbc:mysql://"+host+"/cajero?"+"user="+user+"&password="+passwd_casa);
+			conexion = DriverManager.getConnection("jdbc:mysql://"+host+"/cajero?"+"user="+user+"&password="+passwd_cole);
 			
 			//Statement
 			statement = conexion.createStatement();

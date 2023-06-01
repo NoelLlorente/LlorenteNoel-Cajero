@@ -203,7 +203,7 @@ public interface Excepciones {
 	 * @param validadoUsr es un booleano que devuelve true si el dni del usuario existe
 	 * @return true o false
 	 */
-	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr) {
+	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean validarTarjetaUsr) {
 		
 		 if(id.length()<6||id.length()>17 ||id.isEmpty()) {
 		    	JOptionPane.showMessageDialog(null, "Error, el id no cumple con la longitud del sistema, o esta vacio");
@@ -257,11 +257,16 @@ public interface Excepciones {
 		  return false;
 	  }
 	   
+	  
+	  if(!validarTarjetaUsr) {
+		  JOptionPane.showMessageDialog(null, "Error, no puedes asociar mas de una tarjeta a un usuario");
+		  return false;
+	  }
 	return true;
 	}
 	
 	
-	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean espinCif) {
+	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean espinCif, boolean validarTarjetaUsr) {
 		
 		 if(id.length()<6||id.length()>17 ||id.isEmpty()) {
 		    	JOptionPane.showMessageDialog(null, "Error, el id no cumple con la longitud del sistema, o esta vacio");
@@ -314,6 +319,12 @@ public interface Excepciones {
 	    
 	  if(!validadoUsr) {
 		  JOptionPane.showMessageDialog(null, "Error, ese dni no existe");
+		  return false;
+	  }
+	  
+
+	  if(!validarTarjetaUsr) {
+		  JOptionPane.showMessageDialog(null, "Error, no puedes asociar mas de una tarjeta a un usuario");
 		  return false;
 	  }
 	   
