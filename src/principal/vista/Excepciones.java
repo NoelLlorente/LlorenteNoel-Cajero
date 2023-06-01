@@ -201,6 +201,7 @@ public interface Excepciones {
 	 * @param fecha fecha de caducidad
 	 * @param dni es el dni del usuario propietario
 	 * @param validadoUsr es un booleano que devuelve true si el dni del usuario existe
+	 * @param validarTarjetaUsr es un boolean que devuelve true si el dni esta vinculado con una tarjeta
 	 * @return true o false
 	 */
 	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean validarTarjetaUsr) {
@@ -266,6 +267,19 @@ public interface Excepciones {
 	}
 	
 	
+	
+	/**
+	 * Validar campos a la hora de crear o modificar tarjetas
+	 * @param id numero de tarjeta
+	 * @param pin es el pin o el password
+	 * @param cvv es el código de verificación de datos de la tarjeta
+	 * @param fecha fecha de caducidad
+	 * @param dni es el dni del usuario propietario
+	 * @param validadoUsr es un booleano que devuelve true si el dni del usuario existe
+	 * @param espinCif es un booleano que devuelve true si el pin esta cifrado
+	 * @param validarTarjetaUsr es un boolean que devuelve true si el dni esta vinculado con una tarjeta
+	 * @return true o false
+	 */
 	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean espinCif, boolean validarTarjetaUsr) {
 		
 		 if(id.length()<6||id.length()>17 ||id.isEmpty()) {
