@@ -12,12 +12,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-/**
- * Es el JDialog donde se mostrarán los movimientos de una cuenta seleccionada anteriormente y habrá botones para realizar operaciones sobre estos datos
- * @author Noel
- *
- */
+
 public class JDMarcoAdmMovimientosCuenta extends JDialog{
+	/**
+	 * Es el JDialog donde se mostrarán los movimientos de una cuenta seleccionada anteriormente y habrá botones para realizar operaciones sobre estos datos
+	 * @author Noel
+	 *
+	 */
+	
 	private DefaultTableModel  modelo;
 	private JButton[] btn;
 	private JComboBox<String> comboBuscar;

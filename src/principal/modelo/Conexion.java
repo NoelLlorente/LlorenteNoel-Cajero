@@ -6,12 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/**
- * 
- * @author Noel
- *Clase Conexion será la encargada de establece la conexión con la base de datos
- */
+
 public class Conexion {
+	/**
+	 * 
+	 * @author Noel
+	 *Clase Conexion será la encargada de establece la conexión con la base de datos
+	 */
 	
 	final private String driver = "com.mysql.cj.jdbc.Driver";
 	final private String host = "localhost";

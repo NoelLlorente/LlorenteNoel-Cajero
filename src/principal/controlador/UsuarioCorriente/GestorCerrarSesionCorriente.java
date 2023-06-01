@@ -5,12 +5,13 @@ import java.awt.event.ActionListener;
 
 import principal.vista.Vista;
 
-/**
- * Controlador del botón cerrar sesión de usuario corriente
- * @author Noel
- *
- */
+
 public class GestorCerrarSesionCorriente implements ActionListener{
+	/**
+	 * Controlador del botón cerrar sesión de usuario corriente
+	 * @author Noel
+	 *
+	 */
 private Vista v;
 
 /**

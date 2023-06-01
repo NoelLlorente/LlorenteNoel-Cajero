@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 
-/**
- * 
- * @author Noel
- *Controlador del botón de ingresar saldo del botón ingresar saldo del JDialog Ingresar Saldo
- */
+
 public class GestorIngresarSaldo implements ActionListener, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón de ingresar saldo del botón ingresar saldo del JDialog Ingresar Saldo
+	 */
 	private Vista v;
 	
 	/**

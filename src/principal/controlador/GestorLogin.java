@@ -18,13 +18,14 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- * Controlador del login, es donde se le añade funcionalidad al boton inciar sesión
- * @author Noel
- *
- */
+
 
 public class GestorLogin implements ActionListener, Excepciones{
+	/**
+	 * Controlador del login, es donde se le añade funcionalidad al boton inciar sesión
+	 * @author Noel
+	 *
+	 */
 	private MarcoUsuarioCorriente usrCorriente;
 	private MarcoLogin Marcologin;
 	private Vista vista;

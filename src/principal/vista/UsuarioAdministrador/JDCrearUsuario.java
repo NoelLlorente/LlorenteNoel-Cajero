@@ -12,10 +12,12 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-/**
- *Es el JDialog donde se introducirán los datos para crear los usuarios
- */
+
 public class JDCrearUsuario extends JDialog{
+	/**
+	 *Es el JDialog donde se introducirán los datos para crear los usuarios
+	 */
+	
 	private JTextField txtDni;
 	private JTextField txtNombre;
 	private JTextField txtApellidos;

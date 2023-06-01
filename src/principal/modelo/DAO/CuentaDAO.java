@@ -15,12 +15,14 @@ import principal.vista.UsuarioAdministrador.JDMarcoAdmCuentas;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmTarjetas;
 import principal.vista.UsuarioCorriente.JDIngresarSaldo;
 import principal.vista.UsuarioCorriente.JDRetirarSaldo;
-/**
- * 
- * @author Noel
- *CuentaDAO en el se crearán los métodos para realizar distintas operaciones en la base de datos sobre las cuentas
- */
+
 public class CuentaDAO implements Consultas, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 *CuentaDAO en el se crearán los métodos para realizar distintas operaciones en la base de datos sobre las cuentas
+	 */
+	
 	 	private PreparedStatement ps = null;
 	    private Statement sta = null;
 	    private ResultSet resultSet = null;
@@ -29,8 +31,8 @@ public class CuentaDAO implements Consultas, Excepciones{
 	    /**
 	     * se encarga de ingresar el saldo a la cuenta
 	     * @param numCuenta es el numero de cuenta en la que ingresaremos el saldo
-	     * @param saldo es el saldo a ingresar 
-	     * @param marcoIngresar es el JDialog JDIngresarSaldo
+	     * @param saldo es el que se va a ingresar 
+	     * @param marcoIngresar es el Dialog JDIngresarSaldo
 	     */
 	    public void ingresarSaldo(String numCuenta, double saldo, JDIngresarSaldo marcoIngresar) {
 	    	try {
@@ -49,7 +51,7 @@ public class CuentaDAO implements Consultas, Excepciones{
 	    		CajeroDAO cajero = new CajeroDAO();
 	    		cajero.actualizarSaldo(1, saldo);
 	    		HistorialDAO historial = new HistorialDAO();
-	    		historial.añadirOperaciones(numCuenta, 1, saldo);
+	    		historial.anadirOperaciones(numCuenta, 1, saldo);
 	    		marcoIngresar.setVisible(false);
 	    		}
 	    	}catch(Exception e) {
@@ -82,7 +84,7 @@ public class CuentaDAO implements Consultas, Excepciones{
 	    		CajeroDAO cajero = new CajeroDAO();
 	    		cajero.actualizarSaldo(2, saldo);
 	    		HistorialDAO historial = new HistorialDAO();
-	    		historial.añadirOperaciones(numCuenta, 2, saldo);
+	    		historial.anadirOperaciones(numCuenta, 2, saldo);
 	    		marcoRetirar.setVisible(false);
 	    		}
 	    	}catch(Exception e) {

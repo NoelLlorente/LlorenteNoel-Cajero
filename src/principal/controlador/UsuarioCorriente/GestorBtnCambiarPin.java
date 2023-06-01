@@ -7,12 +7,13 @@ import principal.modelo.DAO.TarjetaDAO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 import principal.vista.UsuarioCorriente.JDCambiarPin;
-/**
- * 
- * @author Noel
- *Controlador botón cambiar pin
- */
+
 public class GestorBtnCambiarPin implements ActionListener, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador botón cambiar pin
+	 */
 	private JDCambiarPin cmb_pin;
 
 	

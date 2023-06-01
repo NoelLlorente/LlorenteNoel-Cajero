@@ -14,12 +14,13 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-/**
- * 
- * @author Noel
- *	Es el JDialog donde se mostrarán los datos de los usuario y podremos realizar operaciones sobre ellos
- */
+
 public class JDMarcoAdmUsuarios extends JDialog{
+	/**
+	 * 
+	 * @author Noel
+	 *	Es el JDialog donde se mostrarán los datos de los usuario y podremos realizar operaciones sobre ellos
+	 */
 
 	private DefaultTableModel  modelo;
 	private JButton[] btn;

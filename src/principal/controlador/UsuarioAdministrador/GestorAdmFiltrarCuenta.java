@@ -6,12 +6,13 @@ import java.awt.event.ActionListener;
 
 import principal.vista.Vista;
 import principal.modelo.DAO.CuentaDAO;
-/**
- * 
- * @author Noel
- *Controlador del botón Buscar dentro del marco de Administración de Cuentas
- */
+
 public class GestorAdmFiltrarCuenta implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón Buscar dentro del marco de Administración de Cuentas
+	 */
 private Vista v;
 
 /**

@@ -4,12 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import principal.modelo.DAO.UsuarioDAO;
 import principal.vista.Vista;
-/**
- * 
- * @author Noel
- *Controlador del botón Buscar del marco de Administración de Usuario
- */
+
 public class GestorAdmFiltrarUsr implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón Buscar del marco de Administración de Usuario
+	 */
 	private Vista v;
 
 	/**

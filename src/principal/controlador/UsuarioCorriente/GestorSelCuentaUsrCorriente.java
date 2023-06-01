@@ -12,12 +12,13 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-/**
- * 
- * @author Noel
- *Controlador del Marco de selección de cuenta
- */
+
 public class GestorSelCuentaUsrCorriente implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del Marco de selección de cuenta
+	 */
 	private Vista vista;
 
 /**

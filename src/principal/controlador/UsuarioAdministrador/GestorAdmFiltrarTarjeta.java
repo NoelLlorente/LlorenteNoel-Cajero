@@ -4,12 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import principal.modelo.DAO.TarjetaDAO;
 import principal.vista.Vista;
-/**
- * 
- * @author Noel
- *Controlador del botón de Buscar del panel de Administración de Tarjetas
- */
+
 public class GestorAdmFiltrarTarjeta implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón de Buscar del panel de Administración de Tarjetas
+	 */
 	private Vista v;
 
 	/**

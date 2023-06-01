@@ -10,12 +10,14 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-/**
- * Es el marco donde se mostrarán las 4 opciones de administración sobre cuentas, usuarios, tarjeta y cuentas
- * @author Noel
- *
- */
+
 public class MarcoUsuarioAdministrador extends JPanel{
+	/**
+	 * Es el marco donde se mostrarán las 4 opciones de administración sobre cuentas, usuarios, tarjeta y cuentas
+	 * @author Noel
+	 *
+	 */
+	
 	private JButton[] btn_marcoAdm;
 	private JDMarcoAdmUsuarios admUsr;
 	private JDMarcoAdmTarjetas admTarjetas;

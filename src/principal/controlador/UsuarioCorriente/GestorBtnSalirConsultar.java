@@ -5,12 +5,13 @@ import java.awt.event.ActionListener;
 
 import principal.vista.Vista;
 
-/**
- * 
- * @author Noel
- *Controlador del botón salir del JDialog Consultar Saldo
- */
+
 public class GestorBtnSalirConsultar implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón salir del JDialog Consultar Saldo
+	 */
 	private Vista v;
 
 	/**

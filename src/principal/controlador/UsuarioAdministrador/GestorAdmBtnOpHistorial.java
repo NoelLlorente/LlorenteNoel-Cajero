@@ -6,12 +6,13 @@ import java.awt.event.ActionListener;
 import principal.modelo.DAO.HistorialDAO;
 import principal.vista.Vista;
 
-/**
- * 
- * @author Noel
- *Controlador de los botones del Marco de Administracion del Historial de movimientoss
- */
+
 public class GestorAdmBtnOpHistorial implements ActionListener{
+/**
+* 
+* @author Noel
+*Controlador de los botones del Marco de Administracion del Historial de movimientoss
+*/
 	private int acc;
 	private Vista v;
 	

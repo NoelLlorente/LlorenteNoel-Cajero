@@ -11,12 +11,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-/**
- * Es el JDialog donde se introducirán los datos para crear cuentas
- * @author Noel
- *
- */
+
 public class JDCrearCuenta extends JDialog{
+	/**
+	 * Es el JDialog donde se introducirán los datos para crear cuentas
+	 * @author Noel
+	 */
 	private JTextField txtid;
 	private JTextField txtnombre;
 	private JTextField txtsaldo;

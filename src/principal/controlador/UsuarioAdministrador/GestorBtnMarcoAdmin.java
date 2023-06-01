@@ -7,12 +7,13 @@ import principal.modelo.DAO.CajeroDAO;
 import principal.vista.Vista;
 import principal.modelo.DAO.UsuarioDAO;
 
-/**
- * 
- * @author Noel
- *Controlador de los botones del marco de administración
- */
+
 public class GestorBtnMarcoAdmin implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador de los botones del marco de administración
+	 */
 	private int acc;
 	private Vista v;
 	

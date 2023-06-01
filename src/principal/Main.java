@@ -10,6 +10,10 @@ import java.awt.FlowLayout;
  */
 import principal.vista.Vista;
 public class Main {
+	/**
+	 * Clase Main donde se llama a la vista para que se ejecute el programa
+	 * @param args
+	 */
  public static void main(String[] args) {
 	Vista v = new Vista();
 	

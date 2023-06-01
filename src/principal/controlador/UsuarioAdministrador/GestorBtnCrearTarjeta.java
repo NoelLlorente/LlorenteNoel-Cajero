@@ -9,12 +9,13 @@ import javax.swing.JOptionPane;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 import principal.modelo.DAO.TarjetaDAO;
-/**
- * 
- * @author Noel
- *Controlador del botón Crear del marco Crear Tarjetas
- */
+
 public class GestorBtnCrearTarjeta implements ActionListener, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón Crear del marco Crear Tarjetas
+	 */
 	private Vista v;
 
 	/**

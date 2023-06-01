@@ -11,12 +11,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-/**
- * Es el marco donde se mostrarán los datos de la tarjeta
- * @author Noel
- *
- */
+
 public class MarcoUsuarioCorriente extends JPanel{
+	/**
+	 * Es el marco donde se mostrarán los datos de la tarjeta
+	 * @author Noel
+	 *
+	 */
+	
+	
 	private JLabel jl_numTarjeta;
 	private JLabel jl_fechaCad;
 	private JLabel jl_cvv;

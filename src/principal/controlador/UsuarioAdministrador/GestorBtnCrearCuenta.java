@@ -8,12 +8,13 @@ import javax.swing.JOptionPane;
 import principal.modelo.DAO.CuentaDAO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
-/**
- * 
- * @author Noel
- *Controlador del botón Crear del marco crear cuenta
- */
+
 public class GestorBtnCrearCuenta implements ActionListener, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón Crear del marco crear cuenta
+	 */
 	private Vista v;
 
 	/**

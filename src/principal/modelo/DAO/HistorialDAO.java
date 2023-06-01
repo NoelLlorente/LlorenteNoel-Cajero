@@ -16,12 +16,14 @@ import principal.modelo.Consultas;
 import principal.modelo.DTO.HistorialDTO;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmCuentas;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmMovimientosCuenta;
-/**
- * 
- * @author Noel
- *HistorialDAO es donde se crearán los métodos para realizar las operaciones con la base de datos sobre el historial de movimientos
- */
+
 public class HistorialDAO implements Consultas{
+	/**
+	 * 
+	 * @author Noel
+	 *HistorialDAO es donde se crearán los métodos para realizar las operaciones con la base de datos sobre el historial de movimientos
+	 */
+	
 	private PreparedStatement ps = null;
     private Statement sta = null;
     private ResultSet resultSet = null;
@@ -56,14 +58,14 @@ public class HistorialDAO implements Consultas{
 	    return historialCuenta;
 	}
 	
-	
+
 	/**
 	 * Insertará en la base de datos los movimientos que realiza el usuario en la cuenta
 	 * @param id_cuenta es el id de la cuenta al que el historial esta asociado
 	 * @param id_operacion es la operación que se ha realizado por el usuario: ingresar o retirar
-	 * @param saldo es el saldo que se ha retirar o ingresado
+	 * @param saldo es el que se ha retirado o ingresado
 	 */
-	public void añadirOperaciones(String id_cuenta, int id_operacion, double saldo) {
+	public void anadirOperaciones(String id_cuenta, int id_operacion, double saldo) {
 	    try {
 	        PreparedStatement ps = con.getConexion().prepareStatement(INSERTAR_HISTORIAL);
 	        ps.setString(1, id_cuenta);

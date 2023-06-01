@@ -9,12 +9,14 @@ import principal.vista.UsuarioAdministrador.JDCrearCuenta;
 import principal.vista.UsuarioAdministrador.JDCrearTarjeta;
 import principal.vista.UsuarioAdministrador.JDCrearUsuario;
 
-/**
- * Interfaz en la cuál se crean métodos para válidar los datos de la aplicación
- * @author Noel
- *
- */
+
 public interface Excepciones {
+	/**
+	 * Interfaz en la cuál se crean métodos para válidar los datos de la aplicación
+	 * @author Noel
+	 *
+	 */
+	
 	
 	/**
 	 * Validar que el login no esté vacio
@@ -201,7 +203,7 @@ public interface Excepciones {
 	 * @param fecha fecha de caducidad
 	 * @param dni es el dni del usuario propietario
 	 * @param validadoUsr es un booleano que devuelve true si el dni del usuario existe
-	 * @param validarTarjetaUsr es un boolean que devuelve true si el dni esta vinculado con una tarjeta
+	 * @param validarTarjetaUsr es un booleano que devuelve true si el dni esta vinculado con una tarjeta
 	 * @return true o false
 	 */
 	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean validarTarjetaUsr) {
@@ -277,7 +279,7 @@ public interface Excepciones {
 	 * @param dni es el dni del usuario propietario
 	 * @param validadoUsr es un booleano que devuelve true si el dni del usuario existe
 	 * @param espinCif es un booleano que devuelve true si el pin esta cifrado
-	 * @param validarTarjetaUsr es un boolean que devuelve true si el dni esta vinculado con una tarjeta
+	 * @param validarTarjetaUsr es un booleano que devuelve true si el dni esta vinculado con una tarjeta
 	 * @return true o false
 	 */
 	public default boolean validarCamposTarjetas(String id, String pin, String cvv, String fecha, String dni, boolean validadoUsr, boolean espinCif, boolean validarTarjetaUsr) {

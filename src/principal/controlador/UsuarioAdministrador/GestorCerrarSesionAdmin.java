@@ -4,12 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import principal.vista.Vista;
-/**
- * Controlador botón cerrar sesión del administrador
- * @author Noel
- *
- */
+
 public class GestorCerrarSesionAdmin implements ActionListener{
+	/**
+	 * Controlador botón cerrar sesión del administrador
+	 * @author Noel
+	 *
+	 */
 private Vista v;
 
 /**

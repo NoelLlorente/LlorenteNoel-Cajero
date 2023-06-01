@@ -7,12 +7,14 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import principal.modelo.DTO.HistorialDTO;
-/**
- * JDialog donde se mostrará el historial de movimientos
- * @author Noel
- *
- */
+
 public class JDHistorialMov extends JDialog {
+	/**
+	 * JDialog donde se mostrará el historial de movimientos
+	 * @author Noel
+	 *
+	 */
+	
     private JTable tabla;
     private MarcoOpUsrCorriente marco;
     public JDHistorialMov(MarcoOpUsrCorriente marco) {

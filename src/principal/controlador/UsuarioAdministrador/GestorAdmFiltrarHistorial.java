@@ -7,12 +7,13 @@ import java.awt.event.ActionListener;
 import principal.vista.Vista;
 import principal.modelo.DAO.HistorialDAO;
 
-/**
- * 
- * @author Noel
- *Controlador del botón Buscar del marco de Administración del Historial de Movimientos
- */
+
 public class GestorAdmFiltrarHistorial implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón Buscar del marco de Administración del Historial de Movimientos
+	 */
 private Vista v;
 
 /**

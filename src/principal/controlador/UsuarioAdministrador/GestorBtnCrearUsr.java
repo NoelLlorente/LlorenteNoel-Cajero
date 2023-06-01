@@ -8,12 +8,13 @@ import javax.swing.JOptionPane;
 import principal.modelo.DAO.UsuarioDAO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
-/**
- * 
- * @author Noel
- *Controlador del botón Crear del JDialog Crear Usuarios
- */
+
 public class GestorBtnCrearUsr implements ActionListener, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón Crear del JDialog Crear Usuarios
+	 */
 	private Vista v;
 
 	/**

@@ -36,13 +36,15 @@ import principal.vista.UsuarioCorriente.MarcoOpUsrCorriente;
 import principal.vista.UsuarioCorriente.MarcoSelCuenta;
 import principal.vista.UsuarioCorriente.MarcoUsuarioCorriente;
 
-/** 
- * Es el JFrame donde se añadirán los ActionListener a los botones y donde estarán todos los componentes
- * 
- * @author Noel
- *
- */
+
 public class Vista extends JFrame{
+	/** 
+	 * Es el JFrame donde se añadirán los ActionListener a los botones y donde estarán todos los componentes
+	 * 
+	 * @author Noel
+	 *
+	 */
+	
 	private ArrayList<UsuarioDTO> usuarios;
 	private MarcoLogin Marcologin;
 	private MarcoUsuarioCorriente usrCorriente;

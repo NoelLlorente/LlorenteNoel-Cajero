@@ -12,12 +12,14 @@ import principal.modelo.DTO.CajeroDTO;
 import principal.vista.Excepciones;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmCajero;
 
+public class CajeroDAO implements Consultas, Excepciones{
+
 /**
  * 
  * @author Noel
  *CajeroDAO en el se harán las operaciones sobre la base de datos que tengan que ver con el cajero
  */
-public class CajeroDAO implements Consultas, Excepciones{
+	
 	CajeroDTO cajero = null;
     private PreparedStatement ps = null;
     private Statement sta = null;

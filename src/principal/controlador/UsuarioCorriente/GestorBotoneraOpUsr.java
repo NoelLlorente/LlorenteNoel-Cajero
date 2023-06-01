@@ -17,12 +17,14 @@ import principal.modelo.DAO.TarjetaDAO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import principal.modelo.DAO.CajeroDAO;
-/**
- * 
- * @author Noel
- *Controlador botones Menu operaciones Usuario
- */
+
 public class GestorBotoneraOpUsr implements ActionListener, Excepciones {
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador botones Menu operaciones Usuario
+	 */
+	
 	private int acc;
 	private Vista v;
 	

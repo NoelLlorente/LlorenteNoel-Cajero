@@ -12,12 +12,14 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-/**
- * Es el JDialog donde se introducirán los datos para crear las cuentas
- * @author Noel
- *
- */
+
 public class JDCrearTarjeta extends JDialog{
+	/**
+	 * Es el Dialog donde se introducirán los datos para crear las cuentas
+	 * @author Noel
+	 *
+	 */
+	
 	private JTextField txtid;
 	private JPasswordField txtpin;
 	private JTextField txtcvv;

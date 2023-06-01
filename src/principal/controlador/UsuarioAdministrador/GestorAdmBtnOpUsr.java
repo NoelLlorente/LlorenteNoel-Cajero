@@ -11,12 +11,14 @@ import principal.modelo.DAO.UsuarioDAO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 import principal.vista.UsuarioAdministrador.JDCrearUsuario;
-/**
- * 
- * @author Noel
- *Controlador de los botones del Marco de Administración de usuarios
- */
+
 public class GestorAdmBtnOpUsr implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador de los botones del Marco de Administración de usuarios
+	 */
+	
 	private int acc;
 	private Vista v;
 	

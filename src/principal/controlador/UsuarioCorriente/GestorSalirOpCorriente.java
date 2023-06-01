@@ -4,12 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import principal.vista.Vista;
-/**
- * Controlador del botón salir del Marco Operaciones Usuarios Corrientes
- * @author Noel
- *
- */
+
 public class GestorSalirOpCorriente implements ActionListener{
+	/**
+	 * Controlador del botón salir del Marco Operaciones Usuarios Corrientes
+	 * @author Noel
+	 *
+	 */
 	private Vista v;
 	
 	/**

@@ -20,12 +20,14 @@ import principal.modelo.DTO.UsuarioCorriente;
 import principal.modelo.DTO.UsuarioDTO;
 import principal.vista.Excepciones;
 import principal.vista.UsuarioAdministrador.JDMarcoAdmUsuarios;
-/**
- * 
- * @author Noel
- *UsuarioDAO es el objeto que se comunicará con la base de datos para realizar operaciones sobre los usuarios
- */
+
 public class UsuarioDAO implements Consultas, Excepciones {
+	/**
+	 * 
+	 * @author Noel
+	 *UsuarioDAO es el objeto que se comunicará con la base de datos para realizar operaciones sobre los usuarios
+	 */
+	
     private String clave = "admin";
     public ArrayList<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
     private PreparedStatement ps = null;

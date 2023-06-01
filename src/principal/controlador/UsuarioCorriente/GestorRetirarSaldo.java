@@ -15,12 +15,13 @@ import principal.modelo.DTO.UsuarioDTO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 
-/**
- * 
- * @author Noel
- *Controlador del botón retira saldo
- */
+
 public class GestorRetirarSaldo implements ActionListener, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón retira saldo
+	 */
 	private Vista v;
 
 	/**

@@ -20,6 +20,12 @@ import principal.vista.UsuarioAdministrador.JDMarcoAdmTarjetas;
 import principal.vista.UsuarioCorriente.JDCambiarPin;
 
 public class TarjetaDAO implements Consultas, Excepciones{
+	/**
+	 * 
+	 * @author Noel
+	 * TarjetaDAO es donde se crearán los métodos para realizar las operaciones con la base de datos sobre las tarjetas
+	 */
+	
 	private TarjetaDTO tarjeta;
 	private PreparedStatement ps = null;
 	private Statement sta = null;

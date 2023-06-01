@@ -10,12 +10,13 @@ import principal.modelo.DAO.UsuarioDAO;
 import principal.vista.Excepciones;
 import principal.vista.Vista;
 import principal.vista.UsuarioCorriente.JDCambiarPin;
-/**
- * 
- * @author Noel
- *Controlador del botón de cambiar Pin del Marco Usuario Corriente
- */
+
 public class GestorCmbPin implements ActionListener, Excepciones {
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador del botón de cambiar Pin del Marco Usuario Corriente
+	 */
 	private JDCambiarPin cmb_pin;
 	
 	/**

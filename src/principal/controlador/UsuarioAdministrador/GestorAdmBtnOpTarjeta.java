@@ -7,12 +7,13 @@ import java.awt.event.ActionListener;
 import principal.vista.Vista;
 import principal.modelo.DAO.TarjetaDAO;
 
-/**
- * 
- * @author Noel
- *Controlador de los botones del Marco de administración de tarjetas
- */
+
 public class GestorAdmBtnOpTarjeta implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador de los botones del Marco de administración de tarjetas
+	 */
 	private int acc;
 	private Vista v;
 	

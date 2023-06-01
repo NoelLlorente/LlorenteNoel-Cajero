@@ -1,11 +1,11 @@
 package principal.modelo;
-/**
- * 
- * @author Noel
- *Es una interfaz con todas las consultas que realizaremos a la base de datos
- */
+
 public interface Consultas {
-	
+	/**
+	 * 
+	 * @author Noel
+	 *Es una interfaz con todas las consultas que realizaremos a la base de datos
+	 */
 	public static final String BUSCAR_PIN = "select aes_decrypt(unhex(pin), 'admin') from tarjeta where dni_usuario=?";
 	public static final String TIPO_USR = "select tipo_usuario from usuario where dni=?";
 	public static final String CARGAR_USR = "select * from usuario where dni=?";

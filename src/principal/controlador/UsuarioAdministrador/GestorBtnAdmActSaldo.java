@@ -6,12 +6,13 @@ import java.awt.event.ActionListener;
 
 import principal.vista.Vista;
 import principal.modelo.DAO.CajeroDAO;
-/**
- * 
- * @author Noel
- *Controlador botón actualizar del Marco de Administración del cajero
- */
+
 public class GestorBtnAdmActSaldo implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador botón actualizar del Marco de Administración del cajero
+	 */
 private Vista v;
 
 /**

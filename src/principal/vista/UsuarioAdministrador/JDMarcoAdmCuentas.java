@@ -12,12 +12,13 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-/**
- * Es el JDialog donde se mostrarán los datos de las cuentas y donde habrán botones para realizar operaciones sobre ellas
- * @author Noel
- *
- */
+
 public class JDMarcoAdmCuentas extends JDialog{
+	/**
+	 * Es el JDialog donde se mostrarán los datos de las cuentas y donde habrán botones para realizar operaciones sobre ellas
+	 * @author Noel
+	 *
+	 */
 	private DefaultTableModel  modelo;
 	private JButton[] btn;
 	private JComboBox<String> comboBuscar;

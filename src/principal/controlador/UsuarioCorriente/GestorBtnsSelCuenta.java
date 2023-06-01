@@ -10,12 +10,14 @@ import principal.vista.Vista;
 import principal.vista.UsuarioCorriente.MarcoOpUsrCorriente;
 import principal.vista.UsuarioCorriente.MarcoSelCuenta;
 
-/**
- * 
- * @author Noel
- *Controlador de los botones del JDialog Selección de Cuenta
- */
+
 public class GestorBtnsSelCuenta implements ActionListener {
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador de los botones del JDialog Selección de Cuenta
+	 */
+	
 	private int acc;
 	private Vista vista;
 	

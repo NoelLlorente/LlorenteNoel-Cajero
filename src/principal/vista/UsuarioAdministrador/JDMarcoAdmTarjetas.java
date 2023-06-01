@@ -12,10 +12,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-/**
- * Es el JDialog donde se mostrarán los datos de las tarjetas y podremos realizar operaciones sobre ellas
- */
+
 public class JDMarcoAdmTarjetas extends JDialog{
+	/**
+	 * Es el JDialog donde se mostrarán los datos de las tarjetas y podremos realizar operaciones sobre ellas
+	 */
+	
 	private DefaultTableModel  modelo;
 	private JButton[] btn;
 	private JComboBox<String> comboBuscar;

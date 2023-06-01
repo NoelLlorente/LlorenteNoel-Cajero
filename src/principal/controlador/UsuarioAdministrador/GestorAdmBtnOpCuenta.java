@@ -8,12 +8,13 @@ import javax.swing.JOptionPane;
 
 import principal.vista.Vista;
 import principal.modelo.DAO.CuentaDAO;
-/**
- * 
- * @author Noel
- *Controlador de botones del marco de administración de Cuentas
- */
+
 public class GestorAdmBtnOpCuenta implements ActionListener{
+	/**
+	 * 
+	 * @author Noel
+	 *Controlador de botones del marco de administración de Cuentas
+	 */
 private Vista v;
 private int acc;
 

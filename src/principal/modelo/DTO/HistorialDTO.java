@@ -1,10 +1,12 @@
 package principal.modelo.DTO;
-/**
- * Clase HistorialDTO en la cual se declarán los atributos del Historial
- * @author Noel
- *
- */
+
 public class HistorialDTO {
+	/**
+	 * Clase HistorialDTO en la cual se declarán los atributos del Historial
+	 * @author Noel
+	 *
+	 */
+	
 	private int id_operacion;
 	private String fecha;
 	private String hora;
