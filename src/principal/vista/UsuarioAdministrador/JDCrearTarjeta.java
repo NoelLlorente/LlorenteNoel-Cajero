@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 /**
@@ -18,7 +19,7 @@ import javax.swing.border.TitledBorder;
  */
 public class JDCrearTarjeta extends JDialog{
 	private JTextField txtid;
-	private JTextField txtpin;
+	private JPasswordField txtpin;
 	private JTextField txtcvv;
 	private JTextField txtfechaCad;
 	private JTextField txtdni_usr;
@@ -33,7 +34,7 @@ public class JDCrearTarjeta extends JDialog{
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();
 		txtid = new JTextField();
-		txtpin = new JTextField();
+		txtpin = new JPasswordField();
 		txtcvv = new JTextField();
 		txtfechaCad = new JTextField();
 		txtdni_usr = new JTextField();
@@ -75,11 +76,11 @@ public class JDCrearTarjeta extends JDialog{
 		this.txtid = txtid;
 	}
 
-	public JTextField getTxtpin() {
+	public JPasswordField getTxtpin() {
 		return txtpin;
 	}
 
-	public void setTxtpin(JTextField txtpin) {
+	public void setTxtpin(JPasswordField txtpin) {
 		this.txtpin = txtpin;
 	}
 
