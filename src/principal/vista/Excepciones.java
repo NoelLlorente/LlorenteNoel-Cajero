@@ -42,6 +42,12 @@ public interface Excepciones {
 			JOptionPane.showMessageDialog(null, "El pin no puede ser inferior a 3 caracteres o mayor a 6 caracteres");
 			return true;
 		}
+
+		if(!pin.matches("[0-9]+")){
+			JOptionPane.showMessageDialog(null, "Error, el pin debe contener numeros");
+			return true;
+		}
+
 		return false;
 	}
 	

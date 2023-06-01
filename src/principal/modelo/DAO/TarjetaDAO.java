@@ -139,7 +139,7 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    		 codSQL = MODIFICAR_TARJETA_PINCIF;
 	    	 }
  		
-	    		if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), pinCifrado, validarTarjetaUsuario(dni_usr))) { 
+	    		if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), pinCifrado, validarTarjetaUsuario(dni_usr, ID))) {
 	    	    	try {
 	    	    		ps = con.getConexion().prepareStatement(codSQL);
 	    	    		ps.setString(1, pin);
@@ -231,7 +231,7 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	    	String dni_usr = admTarjeta.getCrearTarjeta().getTxtdni_usr().getText();
 	    
 	    	
-	       if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), validarTarjetaUsuario(dni_usr))) {
+	       if(validarCamposTarjetas(ID, pin,cvv,fecha_cad, dni_usr, validarDniUsr(dni_usr), validarTarjetaUsuario(dni_usr, ID))) {
 	            try {
 	                ps = con.getConexion().prepareStatement(INSERTAR_TARJETA);
 	                ps.setString(1, ID);
@@ -257,13 +257,8 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	            }
 	        }
 	 }
-	 
-	 
-	 
-	 
-	
-	
-	 
+
+
 	 
 	 /**
 	  * Se validará que el dni que se ha introducido existe
@@ -291,19 +286,25 @@ public class TarjetaDAO implements Consultas, Excepciones{
 	  * @param dni_usr
 	  * @return true si se valida correctamente
 	  */
-	 public boolean validarTarjetaUsuario(String dni_usr) {
+	 public boolean validarTarjetaUsuario(String dni_usr, String id) {
 		 try {
-		        this.ps = con.getConexion().prepareStatement(VALIDAR_TARJETA_USR);
-		        this.ps.setString(1, dni_usr);
-		        ResultSet rs = ps.executeQuery();
-		        
-		        if (rs.next()) {
-		            return false; 
-		        }
-		    } catch (Exception e) {
-		        System.out.println("Error al validar, ya existe una tarjeta asociada a ese usuario: " + e.getMessage());
-		    }
-		    return true; 
+			 this.ps = con.getConexion().prepareStatement(VALIDAR_TARJETA_USR);
+			 this.ps.setString(1, dni_usr);
+			 ResultSet rs = ps.executeQuery();
+
+			 if (rs.next()) {
+				 String tarjetaId = rs.getString("id");
+				 String dniUsr = rs.getString("dni_usuario");
+
+				 if (!tarjetaId.equals(id) && dniUsr != null) {
+					 return false;
+				 }
+			 }
+		 } catch (Exception e) {
+			 System.out.println("Error al validar el usuario y la cuenta: " + e.getMessage());
+		 }
+
+		 return true;
 	 }
 
 }

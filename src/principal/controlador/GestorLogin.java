@@ -33,7 +33,7 @@ public class GestorLogin implements ActionListener, Excepciones{
 	/**
 	 * 
 	 *@param usrCorriente es el marco de los usuarios corrientes
-	 *@param Marcologin es el marco del Login donde se mostrarán los JTextField y el Botón 
+	 *@param marcologin es el marco del Login donde se mostrarán los JTextField y el Botón
 	 *@param vista es el JFrame donde se llamarán todos los componentes
 	 *
 	 * 
