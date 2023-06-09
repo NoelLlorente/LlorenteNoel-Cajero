@@ -50,6 +50,7 @@ public class GestorBotoneraOpUsr implements ActionListener, Excepciones {
 		 */
 		 int indice = v.getSelCuenta().getListaCuentas().getSelectedIndex();
 
+
 	        switch (acc) {
 	            case 0: 
 	            	/**
@@ -102,11 +103,18 @@ public class GestorBotoneraOpUsr implements ActionListener, Excepciones {
 	            	 * @see principal.modelo.DAO.UsuarioDAO
 	            	 * @see principal.modelo.DTO.HistorialDTO
 	            	 */
+					if(v.getOpUsrCorriente().getMovimientos().getTabla().getModel().getRowCount()>0){
+						for(int i=0; i<v.getOpUsrCorriente().getMovimientos().getTabla().getRowCount(); i++){
+							v.getOpUsrCorriente().getMovimientos().getModel().removeRow(i);
+							i-=1;
+						}
+					}
 	                v.getOpUsrCorriente().getMovimientos().setVisible(true);
 	                CuentaDTO cuentaMov = null;
 	                if (indice != -1) {
 	                    UsuarioDAO cuen = new UsuarioDAO(v.getMarcologin().getDnitxf().getText());
 	                    ArrayList<CuentaDTO> cuentas = new ArrayList<CuentaDTO>();
+
 	                    for (UsuarioDTO usr : cuen.getUsuarios()) {
 	                        cuentas = usr.getTarjeta().getCuenta();
 	                    }
@@ -120,6 +128,7 @@ public class GestorBotoneraOpUsr implements ActionListener, Excepciones {
 	                        model.addRow(rowData);
 	                        id++;
 	                    }
+
 	                }
 	                break;
 	         	

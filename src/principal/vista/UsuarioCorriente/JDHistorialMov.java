@@ -17,13 +17,13 @@ public class JDHistorialMov extends JDialog {
 	
     private JTable tabla;
     private MarcoOpUsrCorriente marco;
+    private DefaultTableModel model;
     public JDHistorialMov(MarcoOpUsrCorriente marco) {
     	this.marco = marco;
         this.setTitle("Historial de movimientos");
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        DefaultTableModel model = new DefaultTableModel();
-        
+        model = new DefaultTableModel();
         model.addColumn("ID");
         model.addColumn("ID Operación");
         model.addColumn("Fecha");
@@ -36,9 +36,17 @@ public class JDHistorialMov extends JDialog {
         this.add(scrollPane);
         this.pack();
     }
-    
-    
-	public JTable getTabla() {
+
+
+    public DefaultTableModel getModel() {
+        return model;
+    }
+
+    public void setModel(DefaultTableModel model) {
+        this.model = model;
+    }
+
+    public JTable getTabla() {
 		return tabla;
 	}
 	public void setTabla(JTable tabla) {
