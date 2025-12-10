@@ -29,7 +29,7 @@ Acceso privilegiado para la gestión integral del banco.
 
 * **Lenguaje:** Java.
 * **Interfaz Gráfica:** Java Swing (Ventanas, Botones, JTable).
-* **Base de Datos:** MySQL (Motor InnoDB)[cite: 1131, 1134].
+* **Base de Datos:** MySQL (Motor InnoDB).
 * **Diseño:** MySQL Workbench para el modelado Entidad-Relación.
 * **Seguridad:** Algoritmo de encriptación AES para los pines.
 
