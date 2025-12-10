@@ -1,39 +1,37 @@
-# 🏧 LlorenteNoel-Cajero
-
-[cite_start]Este repositorio aloja el proyecto final **Cajero Automático**, un sistema de software desarrollado en Java que simula la operatividad real de una entidad bancaria automatizada[cite: 1, 11]. [cite_start]El sistema gestiona la interacción segura entre usuarios, tarjetas, cuentas y el propio cajero mediante una conexión a base de datos MySQL[cite: 11, 1131].
+Este repositorio aloja el proyecto final **Cajero Automático**, un sistema de software desarrollado en Java que simula la operatividad real de una entidad bancaria. El sistema gestiona la interacción segura entre usuarios, tarjetas, cuentas y el propio cajero mediante una conexión a base de datos MySQL.
 
 ## 📋 Descripción del Proyecto
 
-[cite_start]El objetivo principal es replicar la lógica de negocio de un cajero automático, permitiendo la gestión de transacciones financieras y la administración del sistema[cite: 12]. [cite_start]El proyecto implementa una arquitectura que conecta una interfaz gráfica (GUI) con una base de datos relacional para asegurar la persistencia de los datos[cite: 14].
+El objetivo principal es replicar la lógica de negocio de un cajero automático, permitiendo la gestión de transacciones financieras y la administración del sistema. El proyecto implementa una arquitectura que conecta una interfaz gráfica (GUI) con una base de datos relacional para asegurar la persistencia de los datos.
 
-[cite_start]Incluye validaciones de seguridad, cifrado de credenciales y diferenciación de roles (Usuario vs. Administrador)[cite: 31, 428].
+Incluye validaciones de seguridad, cifrado de credenciales y diferenciación de roles (Usuario vs. Administrador).
 
 ## ✨ Características y Funcionalidades
 
 El sistema divide las operaciones según el rol del usuario logueado:
 
 ### 👤 Usuario Corriente (Cliente)
-[cite_start]Acceso mediante autenticación con DNI y PIN de tarjeta[cite: 458].
-* [cite_start]**Ingresar Dinero:** Depósito de fondos con validación de entrada[cite: 63, 64].
-* [cite_start]**Retirar Dinero:** Extracción de efectivo controlando el límite (máx. 500€) y el saldo disponible[cite: 60, 61, 362].
-* [cite_start]**Consultar Saldo:** Visualización en tiempo real del dinero en cuenta[cite: 70].
-* [cite_start]**Historial de Movimientos:** Tabla detallada con fecha, hora, tipo de operación y cantidad[cite: 69, 476].
-* [cite_start]**Cambio de PIN:** Funcionalidad para actualizar la clave de seguridad de la tarjeta[cite: 66, 371].
+Acceso mediante autenticación con DNI y PIN de tarjeta.
+* **Ingresar Dinero:** Depósito de fondos con validación de entrada.
+* **Retirar Dinero:** Extracción de efectivo controlando el límite (máx. 500€) y el saldo disponible.
+* **Consultar Saldo:** Visualización en tiempo real del dinero en cuenta.
+* **Historial de Movimientos:** Tabla detallada con fecha, hora, tipo de operación y cantidad.
+* **Cambio de PIN:** Funcionalidad para actualizar la clave de seguridad de la tarjeta.
 
 ### 🛠️ Usuario Administrador
-[cite_start]Acceso privilegiado para la gestión integral del banco[cite: 31, 300].
-* [cite_start]**Gestión de Usuarios:** Crear, modificar, eliminar y buscar usuarios (filtro por DNI, nombre, etc.)[cite: 31, 494].
-* [cite_start]**Gestión de Tarjetas:** Administración de tarjetas, asignación de PIN y fechas de caducidad[cite: 31, 504].
-* [cite_start]**Gestión de Cuentas:** Administración de cuentas bancarias y vinculación con tarjetas[cite: 31, 515].
-* [cite_start]**Gestión del Cajero:** Visualización y recarga del saldo físico disponible en la máquina[cite: 31, 534].
+Acceso privilegiado para la gestión integral del banco.
+* **Gestión de Usuarios:** Crear, modificar, eliminar y buscar usuarios (filtro por DNI, nombre, etc.).
+* **Gestión de Tarjetas:** Administración de tarjetas, asignación de PIN y fechas de caducidad.
+* **Gestión de Cuentas:** Administración de cuentas bancarias y vinculación con tarjetas.
+* **Gestión del Cajero:** Visualización y recarga del saldo físico disponible en la máquina.
 
 ## 🛠️ Tecnologías Utilizadas
 
-* [cite_start]**Lenguaje:** Java[cite: 11].
-* [cite_start]**Interfaz Gráfica:** Java Swing (Ventanas, Botones, JTable)[cite: 461, 478].
-* [cite_start]**Base de Datos:** MySQL (Motor InnoDB)[cite: 1131, 1134].
-* [cite_start]**Diseño:** MySQL Workbench para el modelado Entidad-Relación[cite: 1131].
-* [cite_start]**Seguridad:** Algoritmo de encriptación AES para los pines[cite: 1147].
+* **Lenguaje:** Java.
+* **Interfaz Gráfica:** Java Swing (Ventanas, Botones, JTable).
+* **Base de Datos:** MySQL (Motor InnoDB)[cite: 1131, 1134].
+* **Diseño:** MySQL Workbench para el modelado Entidad-Relación.
+* **Seguridad:** Algoritmo de encriptación AES para los pines.
 
 ## 🚀 Instalación y Configuración
 
@@ -43,7 +41,7 @@ El sistema divide las operaciones según el rol del usuario logueado:
 * Un entorno de desarrollo (IDE) como IntelliJ, Eclipse o NetBeans.
 
 ### 2. Configuración de la Base de Datos
-El proyecto requiere una base de datos llamada `cajero`. [cite_start]Ejecuta el siguiente script SQL (extraído de la documentación) para crear las tablas e insertar datos de prueba[cite: 1133, 1134, 1145]:
+El proyecto requiere una base de datos llamada `cajero`. Ejecuta el siguiente script SQL (extraído de la documentación) para crear las tablas e insertar datos de prueba:
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS `cajero`;
@@ -85,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `cuenta` (
 
 -- (Resto de tablas relacionales: tarjeta_cuenta, operacion, historial_cuenta según documentación)
 
-[cite_start]-- DATOS DE PRUEBA [cite: 1145, 1147]
+-- DATOS DE PRUEBA [cite: 1145, 1147]
 INSERT INTO CAJERO VALUES(1, 10000);
 INSERT INTO OPERACION VALUES(1, "Ingresar Saldo"), (2, "Retirar Saldo");
 -- Usuario Admin (tipo 2) y Normal (tipo 1)
